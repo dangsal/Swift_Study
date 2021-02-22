@@ -27,6 +27,8 @@ class ViewController: UIViewController {
             return
             
         } else {
+            
+            
             let weight = Double(txtWeight.text!)!       // text 는 옵셔널 스트링형, 170입력하면 옵셔널 스트링형이야. 그래서! 붙여야해
             let height = Double(txtHeight.text!)!       // Double 로 바꿔줬는데 옵셔널 더블형이라 ! 필요해
             // **** textfield 의 text 프로퍼티는 String? 형 ****
