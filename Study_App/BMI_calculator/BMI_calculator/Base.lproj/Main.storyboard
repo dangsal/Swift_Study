@@ -54,6 +54,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="BMI 계산"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnResult:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qch-3j-pU7"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="결과" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Idy-jF-t8M">
                                 <rect key="frame" x="62" y="398" width="291" height="47"/>
@@ -70,6 +78,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="lblResult" destination="Idy-jF-t8M" id="akZ-Nd-Wwy"/>
+                        <outlet property="txtHeight" destination="HPV-d5-tzs" id="Eob-V8-042"/>
+                        <outlet property="txtWeight" destination="RLz-DS-CGP" id="GHM-xC-Uca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
