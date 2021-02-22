@@ -73,5 +73,12 @@ class ViewController: UIViewController {
 
     }
     
+    @IBAction func swOnOff(_ sender: UISwitch) {
+        if sender.isOn{
+            // 켜 있을 때
+        } else {
+            // 꺼있을 때
+        }
+    }
 }
 
