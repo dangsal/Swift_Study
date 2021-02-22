@@ -61,6 +61,7 @@ class ViewController: UIViewController {
                 body = "저체중"
                 color = UIColor(displayP3Red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
                 }
+            
             print("BMI: \(shortenedBmi) , 판정: \(body)")
             lblResult.textColor = color
             
