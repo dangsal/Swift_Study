@@ -63,6 +63,10 @@ class ViewController: UIViewController {
                 }
             print("BMI: \(shortenedBmi) , 판정: \(body)")
             lblResult.textColor = color
+            
+//            lblResult.clipsToBounds = true
+//            lblResult.layer.cornerRadius = 10 // 라벨 둥글게 둥글게
+            
             lblResult.text = "BMI: \(shortenedBmi) , 판정: \(body)"
         }
 
