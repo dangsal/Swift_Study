@@ -81,6 +81,8 @@ class ViewController: UIViewController {
     @IBAction func btnAbs(_ sender: UIButton) {
     }
     @IBAction func btnReset(_ sender: UIButton) {
+        currentNum = 0
+        lblResult.text = String(currentNum)
     }
     
     
