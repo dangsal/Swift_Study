@@ -12,15 +12,43 @@ class ViewController: UIViewController {
     @IBOutlet var lblResult: UILabel!
     
     var currentNum = 0
-
+    var tempNum = 0
+    var op = ""
+    var isOperation = false
+    
+    
     func resultChange(_ a: Int) {
-        currentNum = currentNum * 10 + a
-        lblResult.text = String(currentNum)
+        
+        if isOperation == true {
+            currentNum = currentNum * 10 + a
+            lblResult.text = String(currentNum)
+        } else {
+            
+            
+        }
+        
+
+        
+
     }
 
-    
- 
-    
+
+    func operation(_ a: Double , _ b: Double, _ op: String) -> Double {
+        switch op {
+        case "+":
+            return (a + b)
+        case "-":
+            return (a - b)
+        case "*":
+            return (a * b)
+        case "/":
+            return (a / b)
+        case "%":
+            return a.truncatingRemainder(dividingBy: b)
+        default:
+            return 0
+        }
+    }
     
     
     @IBAction func btn0(_ sender: UIButton) {
@@ -64,20 +92,32 @@ class ViewController: UIViewController {
 
     }
     @IBAction func btnDot(_ sender: UIButton) {
-         
+        
     }
     @IBAction func btnResult(_ sender: UIButton) {
     }
     
     @IBAction func btnPlus(_ sender: UIButton) {
+        op = "+"
+        isOperation = true
+        
+        
     }
     @IBAction func btnMinus(_ sender: UIButton) {
+        op = "-"
+        isOperation = true
     }
     @IBAction func btnMulti(_ sender: UIButton) {
+        op = "*"
+        isOperation = true
     }
     @IBAction func btnDivide(_ sender: UIButton) {
+        op = "/"
+        isOperation = true
     }
     @IBAction func btnPercent(_ sender: UIButton) {
+        op = "%"
+        isOperation = true
     }
     @IBAction func btnAbs(_ sender: UIButton) {
         currentNum = currentNum * (-1)
