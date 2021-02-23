@@ -14,6 +14,7 @@
 		4154AC8225E3BC3400B28C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4154AC8125E3BC3400B28C80 /* Assets.xcassets */; };
 		4154AC8525E3BC3400B28C80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4154AC8325E3BC3400B28C80 /* LaunchScreen.storyboard */; };
 		41E5E80B25E3E3A80015D47E /* sakura.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E5E80A25E3E3A80015D47E /* sakura.png */; };
+		41ECDCB125E4CF55003AA1BD /* ViedoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ECDCB025E4CF55003AA1BD /* ViedoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4154AC8425E3BC3400B28C80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4154AC8625E3BC3400B28C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41E5E80A25E3E3A80015D47E /* sakura.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sakura.png; sourceTree = "<group>"; };
+		41ECDCB025E4CF55003AA1BD /* ViedoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViedoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				4154AC7A25E3BC3100B28C80 /* SceneDelegate.swift */,
 				4154AC7C25E3BC3100B28C80 /* ViewController.swift */,
 				4154AC7E25E3BC3100B28C80 /* Main.storyboard */,
+				41ECDCB025E4CF55003AA1BD /* ViedoViewController.swift */,
 				4154AC8125E3BC3400B28C80 /* Assets.xcassets */,
 				4154AC8325E3BC3400B28C80 /* LaunchScreen.storyboard */,
 				4154AC8625E3BC3400B28C80 /* Info.plist */,
@@ -151,6 +154,7 @@
 			files = (
 				4154AC7D25E3BC3100B28C80 /* ViewController.swift in Sources */,
 				4154AC7925E3BC3100B28C80 /* AppDelegate.swift in Sources */,
+				41ECDCB125E4CF55003AA1BD /* ViedoViewController.swift in Sources */,
 				4154AC7B25E3BC3100B28C80 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
