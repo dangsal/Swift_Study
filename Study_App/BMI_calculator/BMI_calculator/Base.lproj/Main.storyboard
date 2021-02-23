@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--BMI-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BMI_calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,7 +96,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="AKR-69-dfr"/>
+                    <tabBarItem key="tabBarItem" title="BMI" image="person.fill.questionmark" catalog="system" id="AKR-69-dfr" userLabel="BMI"/>
                     <connections>
                         <outlet property="lblResult" destination="Idy-jF-t8M" id="akZ-Nd-Wwy"/>
                         <outlet property="txtHeight" destination="HPV-d5-tzs" id="Eob-V8-042"/>
@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1023" y="-82"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="44h-Hj-YRk">
@@ -118,15 +118,37 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="vs6-Bl-wTo"/>
+                        <segue destination="URa-yD-Nyt" kind="relationship" relationship="viewControllers" id="bhP-cM-Ol7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9G5-5y-JRP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
+        <!--Video-->
+        <scene sceneID="az7-SV-TZq">
+            <objects>
+                <viewController id="URa-yD-Nyt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5f9-pj-v6G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eAZ-j3-Bq6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Video" image="video" catalog="system" id="cef-Gj-uMz" userLabel="Video"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r8S-QU-cbQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1020" y="575"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="person.fill.questionmark" catalog="system" width="128" height="104"/>
         <image name="sakura.png" width="384" height="384"/>
+        <image name="video" catalog="system" width="128" height="83"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
