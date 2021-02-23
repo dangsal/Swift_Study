@@ -13,6 +13,7 @@
 		4154AC8025E3BC3100B28C80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4154AC7E25E3BC3100B28C80 /* Main.storyboard */; };
 		4154AC8225E3BC3400B28C80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4154AC8125E3BC3400B28C80 /* Assets.xcassets */; };
 		4154AC8525E3BC3400B28C80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4154AC8325E3BC3400B28C80 /* LaunchScreen.storyboard */; };
+		4178278525E4DD11005EC776 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4178278425E4DD11005EC776 /* WebViewController.swift */; };
 		41E5E80B25E3E3A80015D47E /* sakura.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E5E80A25E3E3A80015D47E /* sakura.png */; };
 		41ECDCB125E4CF55003AA1BD /* ViedoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ECDCB025E4CF55003AA1BD /* ViedoViewController.swift */; };
 		41ECDCB425E4D098003AA1BD /* IlikeYou.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 41ECDCB325E4D098003AA1BD /* IlikeYou.mp4 */; };
@@ -27,6 +28,7 @@
 		4154AC8125E3BC3400B28C80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4154AC8425E3BC3400B28C80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4154AC8625E3BC3400B28C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4178278425E4DD11005EC776 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		41E5E80A25E3E3A80015D47E /* sakura.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sakura.png; sourceTree = "<group>"; };
 		41ECDCB025E4CF55003AA1BD /* ViedoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViedoViewController.swift; sourceTree = "<group>"; };
 		41ECDCB325E4D098003AA1BD /* IlikeYou.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IlikeYou.mp4; sourceTree = "<group>"; };
@@ -65,8 +67,9 @@
 				41E5E80925E3E39B0015D47E /* Image */,
 				4154AC7825E3BC3100B28C80 /* AppDelegate.swift */,
 				4154AC7A25E3BC3100B28C80 /* SceneDelegate.swift */,
-				4154AC7C25E3BC3100B28C80 /* ViewController.swift */,
 				4154AC7E25E3BC3100B28C80 /* Main.storyboard */,
+				4154AC7C25E3BC3100B28C80 /* ViewController.swift */,
+				4178278425E4DD11005EC776 /* WebViewController.swift */,
 				41ECDCB025E4CF55003AA1BD /* ViedoViewController.swift */,
 				4154AC8125E3BC3400B28C80 /* Assets.xcassets */,
 				4154AC8325E3BC3400B28C80 /* LaunchScreen.storyboard */,
@@ -159,6 +162,7 @@
 				4154AC7D25E3BC3100B28C80 /* ViewController.swift in Sources */,
 				4154AC7925E3BC3100B28C80 /* AppDelegate.swift in Sources */,
 				41ECDCB125E4CF55003AA1BD /* ViedoViewController.swift in Sources */,
+				4178278525E4DD11005EC776 /* WebViewController.swift in Sources */,
 				4154AC7B25E3BC3100B28C80 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
