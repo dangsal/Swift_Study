@@ -79,6 +79,8 @@ class ViewController: UIViewController {
     @IBAction func btnPercent(_ sender: UIButton) {
     }
     @IBAction func btnAbs(_ sender: UIButton) {
+        currentNum = currentNum * (-1)
+        lblResult.text = String(currentNum)
     }
     @IBAction func btnReset(_ sender: UIButton) {
         currentNum = 0
