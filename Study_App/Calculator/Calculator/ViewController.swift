@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         let digit = sender.currentTitle!
         
         if userIsInTheMiddleOfTypeing {
-            let textCurrentlyDisplay = lblResult.text!
+            let textCurrentlyDisplay = lblResult.text! 
             lblResult.text = textCurrentlyDisplay + digit
         } else {
             lblResult.text = digit
