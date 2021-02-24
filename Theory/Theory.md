@@ -284,13 +284,12 @@ let myConstant = nil //error
 
 ```
 
-- 옵셔널 변수에 nil을 할당하면 값이 없는 상태가 된다.
-
 ```swift
 var serverResponseCode: Int? = 404 // Int value of 404
 serverResponseCode = nil // no value
 ```
 
+- 옵셔널 변수에 nil을 할당하면 값이 없는 상태가 된다.
 - 상수나 변수가 값이 없는 상태가 존재한다면 옵셔널 타입으로 선언해야 한다.
 - 옵셔널 변수에 초깃값을 할당하지 않으면 자동으로 nil 이 할당됨
 
