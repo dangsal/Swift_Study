@@ -8,32 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet var lblResult: UILabel!
     
-    var userIsInTheMiddleOfTypeing = false
+    @IBOutlet private var lblResult: UILabel!
     
-    @IBAction func performOperation(_ sender: UIButton) {
-        userIsInTheMiddleOfTypeing = false
-        if let mathmaticalSymbol = sender.currentTitle {
-            if mathmaticalSymbol == "π" {
-                displayValue = Double.pi // lblResult.text = String(Double.pi) //M_PI
-            } else if mathmaticalSymbol == "√" {
-                displayValue = sqrt(displayValue)
-            }
-        }
-    }
+    private var userIsInTheMiddleOfTypeing = false
     
-    var displayValue : Double {
-        get {
-            return Double(lblResult.text!)!
-        }
-        set {
-            lblResult.text = String(newValue)
-        }
-    }
     
-    @IBAction func touchDigit(_ sender: UIButton) {
+    @IBAction private func touchDigit(_ sender: UIButton) {
         
         let digit = sender.currentTitle!
         
@@ -44,10 +25,31 @@ class ViewController: UIViewController {
             lblResult.text = digit
         }
         userIsInTheMiddleOfTypeing = true
-
+        
     }
     
-        
+    private var displayValue : Double {
+        get {
+            return Double(lblResult.text!)!
+        }
+        set {
+            lblResult.text = String(newValue)
+        }
+    }
+    private var brain = CalculatorBrain()
+    
+    @IBAction private func performOperation(_ sender: UIButton) {
+        if userIsInTheMiddleOfTypeing{
+            brain.setOperand(operand: displayValue)
+            userIsInTheMiddleOfTypeing = false
+        }
+        userIsInTheMiddleOfTypeing = false
+        if let mathmaticalSymbol = sender.currentTitle {
+            brain.performOperation(symbol: mathmaticalSymbol)
+        }
+        displayValue = brain.result
+    }
+    
     
     
     override func viewDidLoad() {
