@@ -193,7 +193,7 @@ if let constantname = oprionalName{
 
 if var variablename = optionalName{
 	// 옵셔널 변수가 값이 있다면 언래핑해서 일반 변수 variablename 에 대입하고 if 문 실행
-	// 값이 없다면 if 문의 조ㅓ건이 거짓이 되어 if 문을 실행하지 않음
+	// 값이 없다면 if 문의 조건이 거짓이 되어 if 문을 실행하지 않음
 }
 
 var x : Int?
