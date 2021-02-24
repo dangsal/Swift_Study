@@ -459,7 +459,7 @@ for i in 1...10 {
 
 ```swift
 
-fuc printName(firstName:String, lastName:String?){
+func printName(firstName:String, lastName:String?){
 	if let lName = lastName {
 		print(lName, firstName)
 	}
