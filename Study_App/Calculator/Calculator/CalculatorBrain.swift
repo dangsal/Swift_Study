@@ -20,11 +20,11 @@ class CalculatorBrain {
             accumulator = Double.pi
         case "√":
             accumulator = sqrt(accumulator)
-        default: break
+        default: break          // 어느  case에도 속하지 않을때  
         }
     }
     
-    var result : Double{
+    var result : Double{        // read only property
         get{
             return accumulator
         }

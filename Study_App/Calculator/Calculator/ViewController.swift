@@ -28,15 +28,15 @@ class ViewController: UIViewController {
         
     }
     
-    private var displayValue : Double {
-        get {
+    private var displayValue : Double {         //computed property
+        get {                                   //displayValue 값을 가져오기
             return Double(lblResult.text!)!
         }
-        set {
-            lblResult.text = String(newValue)
+        set {                                   //displayValue 값을 설정하기
+            lblResult.text = String(newValue)       //newValue 는 누군가가 displayValue = 에 넣어주었을때 값을 칭하는 키워드
         }
     }
-    private var brain = CalculatorBrain()
+    private var brain = CalculatorBrain()          // brain을 통해서 controller 가 model 에 접근해, = CalculatorBrain() 은 이니셜라이즈하는거
     
     @IBAction private func performOperation(_ sender: UIButton) {
         if userIsInTheMiddleOfTypeing{
