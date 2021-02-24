@@ -17,8 +17,19 @@ class ViewController: UIViewController {
         userIsInTheMiddleOfTypeing = false
         if let mathmaticalSymbol = sender.currentTitle {
             if mathmaticalSymbol == "π" {
-                lblResult.text = String(Double.pi) //M_PI
+                displayValue = Double.pi // lblResult.text = String(Double.pi) //M_PI
+            } else if mathmaticalSymbol == "√" {
+                displayValue = sqrt(displayValue)
             }
+        }
+    }
+    
+    var displayValue : Double {
+        get {
+            return Double(lblResult.text!)!
+        }
+        set {
+            lblResult.text = String(newValue)
         }
     }
     
