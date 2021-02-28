@@ -29,6 +29,7 @@ var welcomeMessage: String // 초깃값이 없으므로 자료형을 직접 표�
 let meaningOfLife = 42 // meaningOfLife Int형으로 타입 추론됨
 let pi = 3.141592 // pi 는 Double형으로 추론됨
 let anotheroPi = 3 + 0.14159 // anotherPi 는 Double형으로 추론된
+
 ```
 
 ## 정수 데이터 타입 : Int
@@ -494,6 +495,7 @@ switch (value)
 		// 두자리 수이다.
 	default:
 		//
+
 }
 ```
 
