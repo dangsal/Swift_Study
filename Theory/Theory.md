@@ -430,7 +430,7 @@ repeat{
 ```swift
 for i in 1..<10 {
 	if i > 5 {
-		break // if 문 안에 하나일지라도 {} 해줘야해
+		break // if문 안에 하나일지라도 {} 해줘야해
 	}
 	print(i)
 }
