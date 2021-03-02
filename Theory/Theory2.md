@@ -160,3 +160,74 @@ override var ingeritedProperty {
 ```swift
 lazy var brain = CalculatorBrain() // 이 부분이 누군가가 brain 에게 요청하기 전까진 할당되지 않는다.
 ```
+
+# Array
+
+```swift
+var a = Array<String>()
+...is the same as ...
+var a = [String]() // String 이 나열된 Array 타입, ()는 초기화
+
+
+let animals = ["Giraffe", "Cow", "Doggie", "Bird"]
+animals.append("Ostrich") // let 이기 때문에 에러
+let animal = animals[5] // crash (array index out of bounds)
+
+// 어떻게 Array 를 열거할까?
+for animal in animals {
+	println("\(animal)")
+}
+```
+
+## Array 에 있는 메소드
+
+- Array 에서의 연산을 하기 위해 클로져를 사용해
+
+```swift
+//1. array 에 있는 무슨 타입이든 받아서 bool을 반환하는 클러져를 제공, 모든 요소마다 클러져 실행 , 클로져가 true 를 반환하는 요소를 포함
+filter(includeElement: (T) -> Bool) -> [T]
+let bigNumbers = [2,47,118,5,9].filter({ $0 > 20 }) // bigNumber = [ 47, 118 ]
+//2. map은 클로져를 받고 클로져는 array 안에 있는 각 요소들을 다른것으로 바꿔버린다.
+map(transform: (T) -> U ) -> [U]
+let stringified: [String] = [1,2,3].map { String($0) } // Int 배열을 String 배열로 바꾸는거
+//3. reduce는 array를 하나의 결과로 줄일 수 있어 . 숫자를 더해가는것
+reduce(initial: U, combine: (U,T) -> U) -> U
+let sum: Int = [1,2,3].reduce(0) { $0 + $1 }
+//4. Dictionary는  키와 값으로 이루어진거
+var pac10teamRankings = Dictionary<String,Int>()
+... is the same as ...
+var pac10teamRankings = [String:Int]()
+pac10teamRankings= ["Stanford":1, "Cal":10]
+let ranking = pac10teamRankings["Ohio State"] // ranking 은 Int? 가 될거야  //  nil
+//열거
+for (key,value) in pac10teamRankings {
+	print("\(key) = \(value)"
+}
+```
+
+# String
+
+```swift
+
+var characters: String.CharacterView { get } // 문자의 배열처럼 보이는 문자들을 가져온다.
+```
+
+- String 의 메소드
+
+```swift
+startIndex -> String.Index
+endIndex -> String.Index
+hasPrefix(String) -> Bool
+hasSuffix(String) -> Bool
+capitalizedString -> String
+lowercaseString -> String
+uppercaseString -> String
+componentsSeparatedByString(String) -> [String] // "1,2,3".csbs(",") = ["1","2","3"]
+```
+
+```swift
+// 1. NSObject : objective-C 클래스들의 기본 클래스
+// 2. NSNumber :
+// 3. NSDate
+// 4. NSData
+```
