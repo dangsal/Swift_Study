@@ -9,9 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var viewTop: UIView!
+    @IBOutlet var viewBottom: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.viewBottom.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        self.viewTop.backgroundColor = UIColor.white.withAlphaComponent(0.3)
     }
 
 
