@@ -54,5 +54,6 @@
 	imageView.animationImages = images
 	// startAnimation 메소드 만들고 imageView.StartAnimating() 실행
 	// stopAnimation 메소드 만들고 if imageView.isAnimating{ imageView.StopAnimating() }
-
+	imageView.animationDuration = 0.1 (기본값) // 1 로 설정 4장의 이미지가 0.25초 마다
+	imageView.animationRepeatCount = 5 // 0 기본값 무한정반복
 ```
