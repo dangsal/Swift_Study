@@ -11,14 +11,25 @@ class ViewController: UIViewController {
 
     @IBOutlet var viewTop: UIView!
     @IBOutlet var viewBottom: UIView!
+    @IBOutlet var profilImageView: UIImageView!
+    @IBOutlet var bottomView: UIView!
+    @IBOutlet var viewPencil: UIView!
+    @IBOutlet var viewUser: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.viewTop.backgroundColor = UIColor.white.withAlphaComponent(0.1)
-        self.viewBottom.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        self.viewTop.backgroundColor = UIColor.white.withAlphaComponent(0.0)
+        self.viewBottom.backgroundColor = UIColor.white.withAlphaComponent(0.0)
         
+        profilImageView.layer.cornerRadius = profilImageView.bounds.width * 0.38
+        
+        bottomView.layer.borderColor = UIColor.white.cgColor
+        bottomView.layer.borderWidth = 0.4
+        
+        self.viewPencil.backgroundColor = UIColor.white.withAlphaComponent(0.0)
+        self.viewUser.backgroundColor = UIColor.white.withAlphaComponent(0.0)
     }
 
 
