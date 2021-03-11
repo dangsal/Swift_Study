@@ -55,3 +55,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 1. UNCalendarNotificationTrigger : 노티피케이션에 전달되는 날짜와 시간을 직접 지정할때 사용 (매일 아침 지정된 시간, 특정 날짜에)
 2. UNTimeIntervalNotificationTrigger : 현재 시점을 기준으로 지정할때 사용 (한시간뒤.,..)
 3. UNLocationNotificationTrigger : 특정 지역에서 전달할 때 사용
+
+# Remote Notification (apple developer 가입해야해) - 나중에 할 예정
+
+: 대부분의 내용이 Local 과 비슷 ( 사용자 입장에서는 로컬과원격 차이 없음)
+
+리모트 노티를 실제로 전달하는 서버 : APNs (애플이 관리하는 서버)
+APNs로 노티요청을 전달하는 서버 : Provider(직접구현해야함(서버구현, 클라우드 서비스 이용))
+
+- Configuring Remote Notification Support
+- Registering to Receive Remote Notifications
+- Obtaining a Device Token
