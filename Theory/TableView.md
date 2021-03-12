@@ -1,7 +1,6 @@
 ## Table View
 
 : 세로방향으로 스크롤 되는 목록에 사용
-
 개별항목은 Cell 이라고 부른다.
 
 - 셀의 너비는 테이블뷰의 너비와 동일하다.
@@ -99,6 +98,61 @@ extension DelegatePetternViewController: UITableViewDataSource {
 3. 프로토타입셀에 Reuse Identifier 을 설정한다.
 4. 테이블 뷰에 데이터 소스를 지정한다.(필요에 따라서 delegete 도 함께 지정한다.)
 5. 데이터소스로 지정된 클래스에서 UITableVieWDataSource 프로토콜에서 선언되어 있는 필수메소드(2개) 를 구현한다.
+
+## Self-Sizing Cell
+
+: Cell 에 표시되는 내용을 기반으로 Cell 의 높이를 선정한다.
+오토레이아웃을 활용해서 셀 높이를 계산할수있도록 구성해 두면 나머지 부분은 테이블 뷰가 알아서 처리한다.
+
+<br>
+
+테이블 뷰 에서
+
+- Row Height: 처음에는 오토 : Self-Sizing Cell 이 활성화된 상태
+- Estimate: 처음에는 오토 : Self-Sizing Cell 이 활성화된 상태
+
+```swift
+
+viewDidLoad(){
+	super.viewDidLoad()
+
+	listTableView.rowHeight = UITableViewAutomaticDimension // 오토랑 설정되어있는거랑 같은거
+	listTableView.estimatedRowHeight = UITableViewAutomaticDimesion // 오토랑 설정되어있는거랑 같은거
+}
+```
+
+- 테이블 뷰의 높이를 예측 할 수 없다면 셀프사이징을 쓴다.
+- 테이블 뷰의 높이 동일하다면 높이를 직접 지정해주면 된다. (테이블뷰가 높이를 계산하는게 필요없기떄문에 스크롤 성능이 향상된다.)
+
+### Cell 높이를 직접 설정하는 방법
+
+- Row Height: 100 (지정)
+- Estimate: 100 (지정)
+
+### 특정 Cell의 높이를 고정하고 나머지 Cell 높이는 자동으로 계산
+
+- 테이블 뷰의 델리게이트는 뷰 컨트롤러로 지정한다.
+
+```swift
+//뷰 컨트롤러 하단
+extension SelfSizeingCellViewController: UITableViewDelegate {
+	// RowHeight 값 무시됨 . 이 메소드가 우선순위가 더 높아.
+	func tableView(_ tableView: UITableView, heighttForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath.row == 0 {
+			return 0
+		}
+
+		return UITableViewAutomaticDimesion
+	}
+
+	func tableView(_ tableView: UITableView, estimateHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath.row == 0 {
+			return 0
+		}
+
+		return UITableViewAutomaticDimesion // 대신 평균적인 셀 높이 직접 리턴하면 스크롤 성능 좀 더 좋아짐
+}
+```
 
 // 재사용 메소드 설명 다시 정리..!
 
