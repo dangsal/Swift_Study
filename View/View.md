@@ -134,3 +134,5 @@ image.drawAsPatternInRect(aCGRect) // 타일을 까는 효과
   1.  (.Left/.Right/.TopBottom/.TopRight/.TopLeft/.BottomRight/.BottomLeft/.Center) . 컨텐츠를 늘리는게 아니라 새 bounds의 장소로 이동하는거
   2.  크기를 조정할 수 있어 .기본값 ScaleToFill (.ScaleToFilee/.ScaleAspectFill/.ScaleAspectFit )
   3.  .Redraw -> drawRect를 다시 호출
+
+내용은 계속 추가 될 예정입니다.
