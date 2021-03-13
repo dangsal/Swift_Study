@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     
     @IBAction func createEntity(_ sender: Any) {
         guard let name = nameField.text else {return}
-        guard let age = ageField.text else {return}
+        guard let val = ageField.text, let age = Int(val) else {return}
         
         let newEntity = NSEntityDescription.insertNewObject(forEntityName: "Person", into: context)
         
