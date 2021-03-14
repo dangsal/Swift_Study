@@ -7,7 +7,7 @@
 - 테이블 뷰에서 2개 이상의 셀을 수평으로 배치하는 것은 불가능 하다.
 - 가로방향으로 스크롤 하는 것도 불가능
 
-<img src = "../images/TableView.png" width="300px"> 이런 UI는 컬렉션 뷰로 구성해야함 <br>
+<img src = "../../images/TableView.png" width="300px"> 이런 UI는 컬렉션 뷰로 구성해야함 <br>
 
 <br><br>
 
@@ -25,7 +25,7 @@
 
   2.  플레잉 스타일 <br>
 
-      <img src = "../images/playingstyle.png" width="300px"> U V W Y 부분이 Header
+      <img src = "../../images/playingstyle.png" width="300px"> U V W Y 부분이 Header
 
   - 섹션에는 헤더와 풋터를 표시할 수 있다. 지금처럼 텍스트만 표시할수도 있고 커스텀뷰를 표시할수도 있다.
   - Floating 형식(?)

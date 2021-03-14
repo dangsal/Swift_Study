@@ -6,8 +6,7 @@
 
 1. 캔버스 메뉴를 사용하는 방법
    - 뷰의 여러개의 제약을 한번에 추가할 때 편리
-   - 뷰의 현재 프레임을 무시하고 제약을 추가할 수 있다.
-   - <img src = "../images/canvasmenu.png" width="100px">
+   - <img src = "../../images/canvasmenu.png" width="100px">
    - 제약을 이미 해둔 상태에서 새로 업데이트 하고 싶으면 4번째 메뉴의 Update Constraint Constants
    - Add new constrains 에서 값은 가장 인접한 뷰와의 거리값
 2. 드래그 앤 드롭 방법

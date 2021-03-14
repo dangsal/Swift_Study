@@ -44,7 +44,7 @@ let rect = CGRect(origin: aCGPoint, size: aCGSize)
 - 드로잉 코드안에 frame 이나 center 사용 x
 - frame 과 bounds 의 크기가 같다? 아니야! bounds는 회전할수 있기때문에 그걸 다 덮는 frame 이 있어야해
 
-<img src = "../images/frameandbounds.png" width="500px">
+<img src = "../../images/frameandbounds.png" width="500px">
 
 ## Creating Views
 
