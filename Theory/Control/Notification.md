@@ -4,7 +4,7 @@
 
 IOS 는 User Notification Center 를 통해 로컬 노티피케이션을 관리한다.
 
-1. 엡에서 노티피케이션을 예약하면 해당 시점의 노티피케이션을 전달한다(유저노티피케이션에)
+1. 엡에서 노티피케이션을 예약하면 해당 시점의 노티피케이션을 전달한다(유저노티피케이션에)
 2. 앱이 실행중인 상태라면 직접 전달하고 , 실행중이 아니라면 배너를 통해 전달한다.
 
 ## Notification 구현
@@ -58,9 +58,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 # Remote Notification (apple developer 가입해야해) - 나중에 할 예정
 
-: 대부분의 내용이 Local 과 비슷 ( 사용자 입장에서는 로컬과원격 차이 없음)
+: 대부분의 내용이 Local 과 비슷 ( 사용자 입장에서는 로컬과원격 차이 없음)
 
-리모트 노티를 실제로 전달하는 서버 : APNs (애플이 관리하는 서버)
+리모트 노티를 실제로 전달하는 서버 : APNs (애플이 관리하는 서버)
 APNs로 노티요청을 전달하는 서버 : Provider(직접구현해야함(서버구현, 클라우드 서비스 이용))
 
 - Configuring Remote Notification Support
