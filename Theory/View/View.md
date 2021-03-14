@@ -9,9 +9,9 @@
 
 - 드로잉에서는 Double, Float을 쓰지 않아 -> CGFloat 사용할거야.(계산은 double로 하더라도 CGFloat으로 바꿔줘야해)(let cfg = CGFloat(aDouble))
 
-### CGPoint : 2개의 변수만 가짐(x 좌표, y좌표)
+### CGPoint : 2개의 변수만 가짐(x 좌표, y좌표)
 
-### CGSize : 2개의 변수만 가짐(너비와 높이)
+### CGSize : 2개의 변수만 가짐(너비와 높이)
 
 ### CGRect :
 
@@ -36,7 +36,7 @@ let rect = CGRect(origin: aCGPoint, size: aCGSize)
 
 ## bounds : 드로잉 하는 경계선 CGRect 사용
 
-## frame : CGRect 사용 : 슈퍼뷰 안에서 나의 뷰가 "어디" 에 있는가를 나타낸다. (슈퍼뷰의 좌표계상에서 나의 뷰를 완전히 덮는 직사각형을 말한다.)
+## frame : CGRect 사용 : 슈퍼뷰 안에서 나의 뷰가 "어디" 에 있는가를 나타낸다. (슈퍼뷰의 좌표계상에서 나의 뷰를 완전히 덮는 직사각형을 말한다.)
 
 ### center : 내 뷰의 중간점이 아닌 슈퍼뷰의 좌표계 기준으로 정중앙 표시 CGPoint
 
