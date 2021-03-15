@@ -106,7 +106,7 @@ extension DelegatePetternViewController: UITableViewDataSource {
 4. 데이터 소스 구현
 5. 델리게이트 구현 ( 셀을 터치하면 다른화면으로 이동하는데 테이블뷰는 어떻게하는지 몰라 그래서 알려줘야한다.)
 
-- 테이블 뷰는 어떤 데이터를 어떤 디자인으로 몇개..? 몰라 -> 데이터소스에 물어봄 
+- 테이블 뷰는 어떤 데이터를 어떤 디자인으로 몇개..? 몰라 -> 데이터소스에 물어봄.
 ## Self-Sizing Cell
 
 : Cell 에 표시되는 내용을 기반으로 Cell 의 높이를 선정한다.
