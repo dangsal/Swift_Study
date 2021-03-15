@@ -15,6 +15,7 @@
 		410E592325FF3F8F00680211 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410E592125FF3F8F00680211 /* LaunchScreen.storyboard */; };
 		410E593125FF4CB900680211 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E593025FF4CB900680211 /* Model.swift */; };
 		410E593425FF554F00680211 /* MemoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E593325FF554F00680211 /* MemoListTableViewController.swift */; };
+		41E543DA25FF717B008A65E2 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E543D925FF717B008A65E2 /* ComposeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		410E592425FF3F8F00680211 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		410E593025FF4CB900680211 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		410E593325FF554F00680211 /* MemoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewController.swift; sourceTree = "<group>"; };
+		41E543D925FF717B008A65E2 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				410E591925FF3F8D00680211 /* Main.storyboard */,
 				410E592425FF3F8F00680211 /* Info.plist */,
 				410E593325FF554F00680211 /* MemoListTableViewController.swift */,
+				41E543D925FF717B008A65E2 /* ComposeViewController.swift */,
 			);
 			path = dangsalMemoApp;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				410E591E25FF3F8D00680211 /* dangsalMemoApp.xcdatamodeld in Sources */,
 				410E591425FF3F8D00680211 /* AppDelegate.swift in Sources */,
 				410E593425FF554F00680211 /* MemoListTableViewController.swift in Sources */,
+				41E543DA25FF717B008A65E2 /* ComposeViewController.swift in Sources */,
 				410E591625FF3F8D00680211 /* SceneDelegate.swift in Sources */,
 				410E593125FF4CB900680211 /* Model.swift in Sources */,
 			);
