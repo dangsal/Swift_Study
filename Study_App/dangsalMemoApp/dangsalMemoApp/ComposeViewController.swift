@@ -9,12 +9,25 @@ import UIKit
 
 class ComposeViewController: UIViewController {
 
-
+    @IBOutlet var memoTextView: UITextView!
+    
     
     @IBAction func close(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil) // modal 화면 끌때 사용하는 메소드 ,<#T##(() -> Void)?##(() -> Void)?##() -> Void#> 화면이 닫을때 실행할 코드를 클로져로 
+        dismiss(animated: true, completion: nil) // modal 화면 끌때 사용하는 메소드 ,<#T##(() -> Void)?##(() -> Void)?##() -> Void#> 화면이 닫을때 실행할 코드를 클로져로
     }
     
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        
+        guard let memo = memoTextView.text, memo.count > 0 else {
+            alert(message: "메모를 입력하세요")
+            return
+        }
+        
+        let newMemo = Memo(content: memo)
+        Memo.dummyMemoList.append(newMemo)
+        
+        dismiss(animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
