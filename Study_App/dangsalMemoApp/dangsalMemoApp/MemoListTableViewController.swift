@@ -8,7 +8,15 @@
 import UIKit
 
 class MemoListTableViewController: UITableViewController {
-
+    
+    let formatter: DateFormatter = {
+       let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .short
+        f.locale = Locale(identifier: "Ko_kr") // 날짜 한국어로 표시
+        return f
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,18 +33,18 @@ class MemoListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return Memo.dummyMemoList.count
-    }
+    } //테이블뷰가 몇개를 표시해야하는지 물어보고 답해주는것
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) // 프로토타입 셀을 cell이라는 아이덴티파이어를 가진 셀을 자동으로 만들어준다. 그 셀을 상수 cell 에 저장 , 셀이 생성되는 시점에는 셀이 비어있다. 그래서 채워줘야해
 
         // Configure the cell...
-        let target = Memo.dummyMemoList[indexPath.row]
-        cell.textLabel?.text = target.content
-        cell.detailTextLabel?.text = target.insertDate.description
+        let target = Memo.dummyMemoList[indexPath.row] // 표시할 데이터를 가져오는것
+        cell.textLabel?.text = target.content // 실제 표시
+        cell.detailTextLabel?.text = formatter.string(from: target.insertDate) // 실제 표시
         return cell
-    }
+    } // 어떤디자인으로 어떤데이터를 표시해야해?
   
 
     /*
