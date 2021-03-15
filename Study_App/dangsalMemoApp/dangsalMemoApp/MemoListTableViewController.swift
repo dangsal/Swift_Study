@@ -17,9 +17,32 @@ class MemoListTableViewController: UITableViewController {
         return f
     }()
     
+//    세그먼트가 풀 스크린일때
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+//        tableView.reloadData()
+//        print(#function)
+    }
+    
+    var token: NSObjectProtocol?
+    
+    deinit{
+        if let token = token {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // 주로 한번만 처리되는 초기화
+        
+       token = NotificationCenter.default.addObserver(forName: ComposeViewController.newMemoDidInsert, object: nil, queue: OperationQueue.main) { [weak self] (noti) in self?.tableView.reloadData()}
+        
+        
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
