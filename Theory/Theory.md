@@ -653,13 +653,21 @@ let toFeet = inchesToFeet // 함수를 자료형 처럼 사용
 3. 리턴값으로 사용 할 수 있다.
 
 ## 클로저 표현식
+- 독립적인 코드 블록
 
 ```swift
 func add(x: Int , y: Int) -> Int {
 	return (x+y)
 }
 print(add(x:10,y:10)
+ 
+ // 1. func add 를 지우고 {} 를 붙인다. 
+ // 2. Int -> {} 에서 {}를 지우고 in을 붙인다.
+ // 3. let add1 = 처럼 새 변수에 넣어준다.
+ 
  // 위는 일반 함수 아래는 클로저
+
+ 
 let add1 = { (x: Int , y: Int) -> Int in
 	return (x+y)
 }
@@ -810,8 +818,8 @@ init(){
 }
 ```
 
-4. designated initializer - 모든 프로퍼티를 다 초기화 시키는 생성자
-5. 소멸자 - 인스턴스가 사라질때 자동 호출 되고, denite{}
+4. designated initializer - 모든 프로퍼티(age,weight)를 다 초기화 시키는 생성자
+5. 소멸자 - 인스턴스가 사라질때 자동 호출 되고, deinit{}
 
 ```swift
 class Man{
@@ -832,7 +840,7 @@ class Man{
 var x : Int
 // var kim : Man = Man() // init() 을 하나라도 직접 만들면 default initializer 는 사라짐
 
-var kim : Man = Man(yourAge: 10 , yourWeight: 20.5)
+var kim = Man(yourAge: 10 , yourWeight: 20.5)
 print(kim.age)
 kim.display()
 ```
