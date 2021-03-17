@@ -33,6 +33,16 @@ class MemoListTableViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell){
+            if let vc = segue.destination as? DetailViewController{
+                vc.memo = Memo.dummyMemoList[indexPath.row]
+            }
+        }
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 주로 한번만 처리되는 초기화
