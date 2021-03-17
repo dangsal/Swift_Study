@@ -16,6 +16,7 @@
 		410E593125FF4CB900680211 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E593025FF4CB900680211 /* Model.swift */; };
 		410E593425FF554F00680211 /* MemoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E593325FF554F00680211 /* MemoListTableViewController.swift */; };
 		415A327B2600F75600906608 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A327A2600F75600906608 /* DetailViewController.swift */; };
+		418721762601DE6900E23160 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418721752601DE6900E23160 /* DataManager.swift */; };
 		41E543DA25FF717B008A65E2 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E543D925FF717B008A65E2 /* ComposeViewController.swift */; };
 		41E543DD25FF7451008A65E2 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E543DC25FF7450008A65E2 /* UIViewController+Alert.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		410E593025FF4CB900680211 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		410E593325FF554F00680211 /* MemoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewController.swift; sourceTree = "<group>"; };
 		415A327A2600F75600906608 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		418721752601DE6900E23160 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		41E543D925FF717B008A65E2 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		41E543DC25FF7450008A65E2 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 		410E591225FF3F8D00680211 /* dangsalMemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				418721742601DE5500E23160 /* Data */,
 				410E592F25FF4C8A00680211 /* Model */,
 				410E592B25FF3FE300680211 /* SupportingFiles */,
 				410E591925FF3F8D00680211 /* Main.storyboard */,
@@ -96,6 +99,14 @@
 				410E593025FF4CB900680211 /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		418721742601DE5500E23160 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				418721752601DE6900E23160 /* DataManager.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 				410E591625FF3F8D00680211 /* SceneDelegate.swift in Sources */,
 				410E593125FF4CB900680211 /* Model.swift in Sources */,
 				41E543DD25FF7451008A65E2 /* UIViewController+Alert.swift in Sources */,
+				418721762601DE6900E23160 /* DataManager.swift in Sources */,
 				415A327B2600F75600906608 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

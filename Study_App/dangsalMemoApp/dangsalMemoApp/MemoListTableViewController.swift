@@ -23,6 +23,10 @@ class MemoListTableViewController: UITableViewController {
 
 //        tableView.reloadData()
 //        print(#function)
+        
+        DataManager.shared.fetchMemo()
+        tableView.reloadData()
+        
     }
     
     var token: NSObjectProtocol?
@@ -36,7 +40,7 @@ class MemoListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell){
             if let vc = segue.destination as? DetailViewController{
-                vc.memo = Memo.dummyMemoList[indexPath.row]
+                vc.memo = DataManager.shared.memoList[indexPath.row]
             }
         }
         
@@ -65,7 +69,7 @@ class MemoListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Memo.dummyMemoList.count
+        return DataManager.shared.memoList.count
     } //테이블뷰가 몇개를 표시해야하는지 물어보고 답해주는것
 
     
@@ -73,9 +77,9 @@ class MemoListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) // 프로토타입 셀을 cell이라는 아이덴티파이어를 가진 셀을 자동으로 만들어준다. 그 셀을 상수 cell 에 저장 , 셀이 생성되는 시점에는 셀이 비어있다. 그래서 채워줘야해
 
         // Configure the cell...
-        let target = Memo.dummyMemoList[indexPath.row] // 표시할 데이터를 가져오는것
+        let target = DataManager.shared.memoList[indexPath.row] // 표시할 데이터를 가져오는것
         cell.textLabel?.text = target.content // 실제 표시
-        cell.detailTextLabel?.text = formatter.string(from: target.insertDate) // 실제 표시
+        cell.detailTextLabel?.text = formatter.string(for: target.insertDate) // 실제 표시
         return cell
     } // 어떤디자인으로 어떤데이터를 표시해야해?
   
