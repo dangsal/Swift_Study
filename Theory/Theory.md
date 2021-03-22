@@ -667,6 +667,9 @@ print(add(x:10,y:10)
  
  // 위는 일반 함수 아래는 클로저
 
+
+
+ 
  
 let add1 = { (x: Int , y: Int) -> Int in
 	return (x+y)
