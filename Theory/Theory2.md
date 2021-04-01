@@ -62,33 +62,6 @@ if s != nil {
 display.text = s ?? " "
 ```
 
-# Tuple // 타입이야
-
-- It is nothing more than a grouping of values.
-
-```swift
-let x: (String, Int, Double) = ("hello", 5, 0.85)
-let (word, number, value) = x
-print(word)
-print(number)
-print(value)
-
-let x (w: String, i: Int, v: Double) = ("hello", 5, 0.85)
-print(x.w)
-print(x.i)
-print(x.v)
-let (wrd, num, val) = x
-```
-
-- Returning multiple values from a function
-
-```swift
-func getSize() -> (weight: Double, height: Double) { return (250,80) }
-
-let x = getSize()
-print(x.weight) // 250
-```
-
 ## Range : A Range in Swift is just two end points
 
 ```swift
