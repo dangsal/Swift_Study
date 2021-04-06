@@ -120,3 +120,170 @@ do {
 // ----- 출력
 "Durian"
 ```
+
+### 예시
+
+1. geogeo.json 파일 asset에 추가
+
+```json
+{
+  "name": "Durian",
+  "points": 600,
+  "description": "A fruit with a distinctive scent."
+}
+```
+
+2. Geogeo.swift 파일 추가
+
+```swift
+import Foundation
+
+struct Geogeo : Codable {
+    let name: String
+    let points: Int
+    let description: String
+}
+
+```
+
+3. parseJSON() 메소드 생성
+
+```swift
+
+func parseJSON(){
+    let decoder = JSONDecoder()
+
+    //JSON 파일에서 데이터 가져오기
+    guard let geogeoData: NSDataAsset = NSDataAsset(name:"geogeo") else {return}
+    do{
+        let geogeo = try decoder.decode(Geogeo.self, from: geogeoData.data)
+        // print(geogeo) 출력 Geogeo(name: "Durian", points: 600, description: "A fruit with a distinctive scent.")
+        // print(geogeo.name) 출력 Durian
+
+    } catch {
+        print(error.localizedDescription)
+    }
+}
+```
+
+4. viewDidLoad() 에서 parseJSON() 호출
+
+```swift
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        parseJSON()
+
+    }
+```
+
+### 테이블 뷰에 JsonParsing 예시
+
+1. friends.json 파일 asset 에 추가 (이 파일은 배열로 되어있음)
+
+```json
+[
+  {
+    "name": "하나",
+    "age": 22,
+    "address_info": {
+      "country": "대한민국",
+      "city": "울산"
+    }
+  },
+  {
+    "name": "주현",
+    "age": 34,
+    "address_info": {
+      "country": "대한민국",
+      "city": "김해"
+    }
+  },
+  {
+    "name": "영선",
+    "age": 26,
+    "address_info": {
+      "country": "대한민국",
+      "city": "부천"
+    }
+  }
+]
+```
+
+2. Friend.swift 파일 추가
+
+```swift
+import Foundation
+
+struct Friend: Codable {
+
+    struct Address: Codable {
+        let country: String
+        let city: String
+    }
+
+    let name: String
+    let age: Int
+    let address_info: Address
+
+// 오류나는 이유를 못찾는 중
+//    enum CodingKeys:String, CodingKey{
+//        case name, age
+//        case addressInfo = "address_info"
+//    }
+}
+```
+
+3. friends 변수 생성, 빈배열로 초기화
+
+```swift
+var friends : [Friend] = []
+```
+
+4. parseJSON() 메소드 생성 및 호출
+
+```swift
+    func parseJSON(){
+        let decoder = JSONDecoder()
+        guard let friendData: NSDataAsset = NSDataAsset(name: "friends") else {return}
+
+        do{
+            self.friends = try decoder.decode([Friend].self, from: friendData.data)
+        } catch{
+            print(error.localizedDescription)
+        }
+    }
+```
+
+5. UITableView 생성 및 delegate, dataSource 연결
+
+```swift
+ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.friends.count
+    }
+```
+
+```swift
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
+    let friend: Friend = self.friends[indexPath.row]
+
+    cell.textLabel?.text = friend.name + "\(friend.age)"
+    cell.detailTextLabel?.text = friend.address_info.city + "," + friend.address_info.country
+
+    return cell
+}
+```
+
+6. viewDidLoad 에 parseJSON() 호출 , tableView.reloadData() 호출
+
+```swift
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        parseJSON()
+        self.tableView.reloadData()
+
+    }
+```
