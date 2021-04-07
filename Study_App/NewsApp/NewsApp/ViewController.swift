@@ -31,6 +31,7 @@ extension ViewController: NewsModelProtocol {
     func newsRetrieved(articles: [News]) {
         print("articles 를 NewsModel 에서 가져옴")
         self.news = articles
+        tableView.reloadData()
     }
 }
 
@@ -40,7 +41,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
+        let new = self.news[indexPath.row]
+        
+        cell.displayNews(news: new)
+        
         
         return cell
     }
