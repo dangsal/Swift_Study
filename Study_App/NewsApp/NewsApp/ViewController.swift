@@ -8,12 +8,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var model = NewsModel()
+    var news = [News]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        model.delegate = self
+        model.getNews()
     }
 
 
 }
 
+extension ViewController: NewsModelProtocol {
+    
+    func newsRetrieved(articles: [News]) {
+        print("articles 를 NewsModel 에서 가져옴")
+        self.news = articles
+    }
+}

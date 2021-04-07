@@ -13,6 +13,10 @@
 		41887609261D7C4400ADFF08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41887607261D7C4400ADFF08 /* Main.storyboard */; };
 		4188760B261D7C4600ADFF08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4188760A261D7C4600ADFF08 /* Assets.xcassets */; };
 		4188760E261D7C4600ADFF08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4188760C261D7C4600ADFF08 /* LaunchScreen.storyboard */; };
+		4188761A261D82DA00ADFF08 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41887619261D82D900ADFF08 /* News.swift */; };
+		4188761D261D840100ADFF08 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188761C261D840100ADFF08 /* NewsService.swift */; };
+		41887621261D85E800ADFF08 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41887620261D85E800ADFF08 /* NewsModel.swift */; };
+		41887624261DBF8000ADFF08 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41887623261DBF8000ADFF08 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		4188760A261D7C4600ADFF08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4188760D261D7C4600ADFF08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4188760F261D7C4600ADFF08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41887619261D82D900ADFF08 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		4188761C261D840100ADFF08 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		41887620261D85E800ADFF08 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		41887623261DBF8000ADFF08 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +64,13 @@
 		41887600261D7C4400ADFF08 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				4188761F261D85D500ADFF08 /* Network */,
+				41887618261D82C600ADFF08 /* Model */,
 				41887616261D7C6000ADFF08 /* SupportingFiles */,
 				41887605261D7C4400ADFF08 /* ViewController.swift */,
 				41887607261D7C4400ADFF08 /* Main.storyboard */,
 				4188760F261D7C4600ADFF08 /* Info.plist */,
+				41887623261DBF8000ADFF08 /* DetailViewController.swift */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -73,6 +84,23 @@
 				4188760C261D7C4600ADFF08 /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		41887618261D82C600ADFF08 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				41887619261D82D900ADFF08 /* News.swift */,
+				4188761C261D840100ADFF08 /* NewsService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4188761F261D85D500ADFF08 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				41887620261D85E800ADFF08 /* NewsModel.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +173,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41887621261D85E800ADFF08 /* NewsModel.swift in Sources */,
+				4188761D261D840100ADFF08 /* NewsService.swift in Sources */,
 				41887606261D7C4400ADFF08 /* ViewController.swift in Sources */,
 				41887602261D7C4400ADFF08 /* AppDelegate.swift in Sources */,
+				4188761A261D82DA00ADFF08 /* News.swift in Sources */,
 				41887604261D7C4400ADFF08 /* SceneDelegate.swift in Sources */,
+				41887624261DBF8000ADFF08 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
