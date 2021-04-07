@@ -12,9 +12,15 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var headLineText: UILabel!
     @IBOutlet weak var headLineImage: UIImageView!
     
+    
+    
     var newsDisplay: News?
     
     func displayNews(news:News){
+        
+        headLineText.text=""
+        headLineImage.image = nil
+        
         newsDisplay = news
         
         headLineText.text = newsDisplay!.title
@@ -28,8 +34,11 @@ class CustomTableViewCell: UITableViewCell {
         
         let dataTask = session.dataTask(with: url!) { (data, response, error) in
             if(error == nil && data != nil){
-                DispatchQueue.main.async {
-                    self.headLineImage.image = UIImage(data: data!)
+                
+                if(self.newsDisplay!.urlToImage == urlString){
+                    DispatchQueue.main.async {
+                        self.headLineImage.image = UIImage(data: data!)
+                    }
                 }
             }
         }

@@ -23,7 +23,9 @@ class ViewController: UIViewController {
         model.getNews()
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
 }
 
 extension ViewController: NewsModelProtocol {

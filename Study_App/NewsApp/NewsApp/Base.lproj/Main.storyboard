@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lfR-WQ-wCk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--News-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -27,32 +27,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="244"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yRF-SD-Wgu">
-                                                    <rect key="frame" x="20" y="11" width="374" height="150"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yRF-SD-Wgu">
+                                                    <rect key="frame" x="50" y="30" width="314" height="150"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="150" id="OJC-xs-ECF"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQe-qs-5CP">
-                                                    <rect key="frame" x="20" y="191" width="374" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQe-qs-5CP">
+                                                    <rect key="frame" x="50" y="210" width="41.5" height="3"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="XQe-qs-5CP" secondAttribute="trailing" id="1Eu-sW-yew"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="XQe-qs-5CP" secondAttribute="trailing" id="1Eu-sW-yew"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="XQe-qs-5CP" secondAttribute="bottom" constant="20" id="BvB-f1-Gd4"/>
-                                                <constraint firstItem="XQe-qs-5CP" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leadingMargin" id="CW9-7z-ElZ"/>
-                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="top" secondItem="bRa-py-fk9" secondAttribute="top" constant="11" id="gvL-nd-XUK"/>
-                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leadingMargin" id="gx9-eD-HT2"/>
-                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="trailing" secondItem="bRa-py-fk9" secondAttribute="trailingMargin" id="n7h-Nc-SjS"/>
+                                                <constraint firstItem="XQe-qs-5CP" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leadingMargin" constant="30" id="CW9-7z-ElZ"/>
+                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="top" secondItem="bRa-py-fk9" secondAttribute="top" constant="30" id="gvL-nd-XUK"/>
+                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leadingMargin" constant="30" id="gx9-eD-HT2"/>
+                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="trailing" secondItem="bRa-py-fk9" secondAttribute="trailingMargin" constant="-30" id="n7h-Nc-SjS"/>
                                                 <constraint firstItem="XQe-qs-5CP" firstAttribute="top" secondItem="yRF-SD-Wgu" secondAttribute="bottom" constant="30" id="wFR-iv-cgl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="headLineImage" destination="yRF-SD-Wgu" id="dKw-j6-AiM"/>
                                             <outlet property="headLineText" destination="XQe-qs-5CP" id="Biu-IJ-pN8"/>
+                                            <segue destination="Rr1-MV-syG" kind="show" id="3ni-wE-otk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -71,13 +72,14 @@
                             <constraint firstItem="AeP-pi-Zny" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rrl-J5-EnM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="News" id="IOx-ug-uaC"/>
                     <connections>
                         <outlet property="tableView" destination="AeP-pi-Zny" id="iiT-0j-YfP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-262.31884057971018" y="138.61607142857142"/>
+            <point key="canvasLocation" x="647.82608695652175" y="138.61607142857142"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="tc4-XX-i8s">
@@ -105,13 +107,32 @@
                             <constraint firstItem="s1E-hg-Fqx" firstAttribute="leading" secondItem="xVI-HK-dGe" secondAttribute="leading" id="nBk-Gn-XJ8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4Oz-XG-m3G"/>
                     <connections>
                         <outlet property="webView" destination="s1E-hg-Fqx" id="PH7-bU-1lI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UO6-Mk-taH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591" y="139"/>
+            <point key="canvasLocation" x="1500.0000000000002" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dA5-sn-tbB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lfR-WQ-wCk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="bcu-x3-AWb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="x3r-k5-mYD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zmz-X5-Cz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-262.31884057971018" y="138.61607142857142"/>
         </scene>
     </scenes>
     <resources>
