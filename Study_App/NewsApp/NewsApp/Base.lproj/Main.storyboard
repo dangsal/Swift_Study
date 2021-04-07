@@ -28,30 +28,34 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yRF-SD-Wgu">
-                                                    <rect key="frame" x="0.0" y="11" width="414" height="150"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="150"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="150" id="OJC-xs-ECF"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQe-qs-5CP">
-                                                    <rect key="frame" x="40" y="191" width="334" height="22"/>
+                                                    <rect key="frame" x="20" y="191" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="XQe-qs-5CP" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leadingMargin" constant="20" id="5t6-IN-Ph0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XQe-qs-5CP" secondAttribute="trailing" id="1Eu-sW-yew"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="XQe-qs-5CP" secondAttribute="bottom" constant="20" id="BvB-f1-Gd4"/>
-                                                <constraint firstAttribute="trailing" secondItem="yRF-SD-Wgu" secondAttribute="trailing" id="XkF-93-fDT"/>
+                                                <constraint firstItem="XQe-qs-5CP" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leadingMargin" id="CW9-7z-ElZ"/>
                                                 <constraint firstItem="yRF-SD-Wgu" firstAttribute="top" secondItem="bRa-py-fk9" secondAttribute="top" constant="11" id="gvL-nd-XUK"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="XQe-qs-5CP" secondAttribute="trailing" constant="20" id="ooI-Zh-2Pf"/>
-                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leading" id="uLp-M0-STo"/>
+                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leadingMargin" id="gx9-eD-HT2"/>
+                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="trailing" secondItem="bRa-py-fk9" secondAttribute="trailingMargin" id="n7h-Nc-SjS"/>
                                                 <constraint firstItem="XQe-qs-5CP" firstAttribute="top" secondItem="yRF-SD-Wgu" secondAttribute="bottom" constant="30" id="wFR-iv-cgl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="OKV-Xl-CpW"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="mPs-kl-aj8"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -63,6 +67,9 @@
                             <constraint firstItem="AeP-pi-Zny" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rrl-J5-EnM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="AeP-pi-Zny" id="iiT-0j-YfP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,10 +101,13 @@
                             <constraint firstItem="s1E-hg-Fqx" firstAttribute="leading" secondItem="xVI-HK-dGe" secondAttribute="leading" id="nBk-Gn-XJ8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="s1E-hg-Fqx" id="PH7-bU-1lI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UO6-Mk-taH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591.304347826087" y="138.61607142857142"/>
+            <point key="canvasLocation" x="591" y="139"/>
         </scene>
     </scenes>
     <resources>

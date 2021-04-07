@@ -9,6 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     var model = NewsModel()
     var news = [News]()
     
@@ -27,5 +31,21 @@ extension ViewController: NewsModelProtocol {
     func newsRetrieved(articles: [News]) {
         print("articles 를 NewsModel 에서 가져옴")
         self.news = articles
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.news.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }
