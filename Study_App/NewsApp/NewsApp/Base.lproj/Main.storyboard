@@ -28,25 +28,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yRF-SD-Wgu">
-                                                    <rect key="frame" x="50" y="30" width="314" height="150"/>
+                                                    <rect key="frame" x="30" y="30" width="354" height="153"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="150" id="OJC-xs-ECF"/>
+                                                        <constraint firstAttribute="height" constant="200" id="OJC-xs-ECF"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQe-qs-5CP">
-                                                    <rect key="frame" x="50" y="210" width="41.5" height="3"/>
+                                                    <rect key="frame" x="30" y="213" width="41.5" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="XQe-qs-5CP" secondAttribute="trailing" id="1Eu-sW-yew"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="XQe-qs-5CP" secondAttribute="trailing" constant="10" id="1Eu-sW-yew"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="XQe-qs-5CP" secondAttribute="bottom" constant="20" id="BvB-f1-Gd4"/>
-                                                <constraint firstItem="XQe-qs-5CP" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leadingMargin" constant="30" id="CW9-7z-ElZ"/>
+                                                <constraint firstItem="XQe-qs-5CP" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leadingMargin" constant="10" id="CW9-7z-ElZ"/>
                                                 <constraint firstItem="yRF-SD-Wgu" firstAttribute="top" secondItem="bRa-py-fk9" secondAttribute="top" constant="30" id="gvL-nd-XUK"/>
-                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leadingMargin" constant="30" id="gx9-eD-HT2"/>
-                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="trailing" secondItem="bRa-py-fk9" secondAttribute="trailingMargin" constant="-30" id="n7h-Nc-SjS"/>
+                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="leading" secondItem="bRa-py-fk9" secondAttribute="leadingMargin" constant="10" id="gx9-eD-HT2"/>
+                                                <constraint firstItem="yRF-SD-Wgu" firstAttribute="trailing" secondItem="bRa-py-fk9" secondAttribute="trailingMargin" constant="-10" id="n7h-Nc-SjS"/>
                                                 <constraint firstItem="XQe-qs-5CP" firstAttribute="top" secondItem="yRF-SD-Wgu" secondAttribute="bottom" constant="30" id="wFR-iv-cgl"/>
                                             </constraints>
                                         </tableViewCellContentView>

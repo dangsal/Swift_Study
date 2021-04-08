@@ -21,9 +21,23 @@ class CustomTableViewCell: UITableViewCell {
         headLineText.text=""
         headLineImage.image = nil
         
+        headLineText.alpha = 0
+        headLineImage.alpha = 0
+        headLineImage.layer.cornerRadius = 15
+        headLineImage.layer.shadowRadius = 10
+        headLineImage.layer.shadowOffset = .init(width: 0 , height: 10)
+        headLineImage.layer.shadowOpacity = 0.5
+        headLineImage.layer.shadowColor = UIColor.black.cgColor
+        headLineImage.layer.shadowPath = UIBezierPath(rect: self.headLineImage.bounds).cgPath
+        headLineImage.layer.masksToBounds = false
+        
         newsDisplay = news
         
         headLineText.text = newsDisplay!.title
+        
+        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+            self.headLineText.alpha = 1
+        }, completion: nil)
         
         guard newsDisplay!.urlToImage != nil else {return}
         let urlString = newsDisplay!.urlToImage!
@@ -38,6 +52,10 @@ class CustomTableViewCell: UITableViewCell {
                 if(self.newsDisplay!.urlToImage == urlString){
                     DispatchQueue.main.async {
                         self.headLineImage.image = UIImage(data: data!)
+                        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+                            self.headLineImage.alpha = 1
+
+                        }, completion: nil)
                     }
                 }
             }
