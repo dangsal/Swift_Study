@@ -28,7 +28,7 @@
 <img src = "../../images/MemoApp2.png" width = "1000" >
 <img src = "../../images/MemoApp3.png" width = "1000" >
 
-## 베운 점
+## 배운 점
 
 - TableView를 다루는 방법을 알게되었다.
 - CoreDate를 이용해 내부 디비를 사용하는 방법을 알게되었다.
