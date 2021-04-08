@@ -97,18 +97,24 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="PdR-31-Epw">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xVI-HK-dGe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="s1E-hg-Fqx" firstAttribute="trailing" secondItem="xVI-HK-dGe" secondAttribute="trailing" id="BEr-Ts-0MF"/>
                             <constraint firstItem="s1E-hg-Fqx" firstAttribute="top" secondItem="PVh-1e-ZF5" secondAttribute="top" id="Gs2-oc-sbX"/>
+                            <constraint firstItem="PdR-31-Epw" firstAttribute="centerY" secondItem="PVh-1e-ZF5" secondAttribute="centerY" id="KQR-kN-TcM"/>
+                            <constraint firstItem="PdR-31-Epw" firstAttribute="centerX" secondItem="PVh-1e-ZF5" secondAttribute="centerX" id="fzp-uo-Pb7"/>
                             <constraint firstAttribute="bottom" secondItem="s1E-hg-Fqx" secondAttribute="bottom" id="jSK-7H-9cu"/>
                             <constraint firstItem="s1E-hg-Fqx" firstAttribute="leading" secondItem="xVI-HK-dGe" secondAttribute="leading" id="nBk-Gn-XJ8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Oz-XG-m3G"/>
                     <connections>
+                        <outlet property="spinner" destination="PdR-31-Epw" id="Do7-ut-BOq"/>
                         <outlet property="webView" destination="s1E-hg-Fqx" id="PH7-bU-1lI"/>
                     </connections>
                 </viewController>
