@@ -21,7 +21,7 @@
 
 <img src = "../../images/NewsAppMain.png" > <img src = "../../images/NewsAppArticle.png" >
 
-## 베운 점
+## 배운 점
 
 - API 를 다루는 방법을 알게되었다.
 - TableView를 다루는 연습을 하게 되었다.
