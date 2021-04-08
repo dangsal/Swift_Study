@@ -23,4 +23,6 @@
 <img src = "../../images/NewsAppMain.png" > 
 <img src = "../../images/NewsAppArticle.png" >
 
+## 프로젝트 정리 블로그 https://dangsalcoding.tistory.com/36
+
 ### 그냥 OPEN API 연습 앱
