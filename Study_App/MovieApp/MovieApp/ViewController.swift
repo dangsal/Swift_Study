@@ -21,6 +21,12 @@ class ViewController: UIViewController {
         model.delegate = self
         model.getMovie()
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let selectedAtMovie = collectionView.indexPathsForSelectedItems
+//        let detailVC = segue.destination as! DetailViewController
+//
+//    }
 
 
 }
