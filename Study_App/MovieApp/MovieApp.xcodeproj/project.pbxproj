@@ -16,6 +16,7 @@
 		4111BF9826256C0B00022EA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4111BF9626256C0B00022EA2 /* LaunchScreen.storyboard */; };
 		4111BFA426256FB600022EA2 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111BFA326256FB600022EA2 /* Movie.swift */; };
 		4111BFA8262572A600022EA2 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111BFA7262572A600022EA2 /* MovieModel.swift */; };
+		4111BFAF2625C2DF00022EA2 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4111BFAE2625C2DF00022EA2 /* CustomCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4111BF9926256C0B00022EA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4111BFA326256FB600022EA2 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		4111BFA7262572A600022EA2 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		4111BFAE2625C2DF00022EA2 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				4111BF9926256C0B00022EA2 /* Info.plist */,
 				4111BFA326256FB600022EA2 /* Movie.swift */,
 				4111BFA7262572A600022EA2 /* MovieModel.swift */,
+				4111BFAE2625C2DF00022EA2 /* CustomCollectionViewCell.swift */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4111BFA8262572A600022EA2 /* MovieModel.swift in Sources */,
+				4111BFAF2625C2DF00022EA2 /* CustomCollectionViewCell.swift in Sources */,
 				4111BF8D26256C0A00022EA2 /* ViewController.swift in Sources */,
 				4111BF8926256C0A00022EA2 /* AppDelegate.swift in Sources */,
 				4111BF9326256C0A00022EA2 /* MovieApp.xcdatamodeld in Sources */,
