@@ -9,7 +9,9 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
-    
+    @IBOutlet var movieTitle: UILabel!
+    @IBOutlet var movieYear: UILabel!
+    @IBOutlet var movieImage: UIImageView!
     
     
     var movieDisplay: Movie?
