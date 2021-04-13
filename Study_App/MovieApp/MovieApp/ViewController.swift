@@ -8,12 +8,24 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var model = MovieModel()
+    var movie = [Movie]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        model.delegate = self
+        model.getMovie()
     }
 
 
 }
 
+
+extension ViewController: MovieModelProtocol{
+    func movieRetrieved(movies: [Movie]) {
+        print("movies를 model 에서 가져옴")
+        self.movie = movies
+    }
+}
