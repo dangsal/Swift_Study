@@ -21,13 +21,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         movieYear.alpha = 0
         movieTitle.alpha = 0
         
-//        movieImage.layer.cornerRadius = 15
-        movieImage.layer.shadowRadius = 15
-        movieImage.layer.shadowOffset = .init(width: 0, height: 0)
-        movieImage.layer.shadowOpacity = 0.5
-        movieImage.layer.shadowColor = UIColor.black.cgColor
-        movieImage.layer.shadowPath = UIBezierPath(rect: self.movieImage.bounds).cgPath
-        movieImage.layer.masksToBounds = true
+
         
         
         movieDisplay = movie

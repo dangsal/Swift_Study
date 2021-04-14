@@ -22,11 +22,24 @@ class ViewController: UIViewController {
         model.getMovie()
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let selectedAtMovie = collectionView.indexPathsForSelectedItems
-//        let detailVC = segue.destination as! DetailViewController
-//
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            if let detailVC = segue.destination as? DetailViewController {
+                if let indexPath = collectionView?.indexPathsForSelectedItems{
+                    let selectedAtMovie = indexPath[0].row
+                    detailVC.detailTitle = movie[selectedAtMovie].title
+                    detailVC.detailSummary = movie[selectedAtMovie].summary
+                    detailVC.detailRating = String(movie[selectedAtMovie].rating!)
+                    detailVC.detailUrl = movie[selectedAtMovie].url
+                    detailVC.detailYear = String(movie[selectedAtMovie].year!)
+//                    detailVC.detailGenre = String(movie[selectedAtMovie].genres)
+                    detailVC.detailImage = movie[selectedAtMovie].medium_cover_image
+                    
+
+                }
+            }
+        }
+    }
 
 
 }

@@ -16,16 +16,35 @@ class DetailViewController: UIViewController {
     @IBOutlet var DetailRating: UILabel!
     @IBOutlet var DetailUrl: UILabel!
     @IBOutlet var DetailTableView: UITableView!
+
     
     
     var movie : Movie?
+    
+    var detailTitle: String?
+    var detailYear: String?
+//    var detailGenre: String?
+    var detailRating: String?
+    var detailSummary: String?
+    var detailUrl: String?
+    var detailImage: String?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DetailTitle.text = detailTitle
+        DetailRating.text = detailRating
+        DetailUrl.text = detailUrl
+        DetailYear.text = detailYear
+        
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -47,7 +66,7 @@ extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = DetailTableView.dequeueReusableCell(withIdentifier: "summary", for: indexPath)
         
-        cell.textLabel?.text = movie?.summary
+        cell.textLabel?.text = detailSummary
         return cell
     }
     

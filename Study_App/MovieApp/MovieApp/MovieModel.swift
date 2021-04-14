@@ -17,7 +17,7 @@ class MovieModel {
     
     func getMovie(){
         
-        let urlString = "https://yts.mx/api/v2/list_movies.json"
+        let urlString = "https://yts-proxy.now.sh/list_movies.json"
         let url = URL(string: urlString)
         
         guard url != nil else {return}
