@@ -32,7 +32,7 @@ class ViewController: UIViewController {
                     detailVC.detailRating = String(movie[selectedAtMovie].rating!)
                     detailVC.detailUrl = movie[selectedAtMovie].url
                     detailVC.detailYear = String(movie[selectedAtMovie].year!)
-//                    detailVC.detailGenre = String(movie[selectedAtMovie].genres)
+//                    detailVC.detailGenre = movie[selectedAtMovie].genres.ma
                     detailVC.detailImage = movie[selectedAtMovie].medium_cover_image
                     
 
