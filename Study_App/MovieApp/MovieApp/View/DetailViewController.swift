@@ -17,10 +17,6 @@ class DetailViewController: UIViewController {
     @IBOutlet var DetailUrl: UILabel!
     @IBOutlet var DetailTableView: UITableView!
 
-  
-    
-
-    
     
     var detailTitle: String?
     var detailYear: String?
