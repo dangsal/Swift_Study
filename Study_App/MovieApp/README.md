@@ -1,0 +1,38 @@
+# MovieApp
+
+## 프로젝트 계획 이유
+
+> Swift 언어 공부 중 2번째 API 통신 연습을 하기 위해 만들었다.
+
+---
+
+## 실행
+
+> 클론 후 MovieApp.xcodeproj <br>
+> simulator 선택 후 실행 <br>
+> 아직 개발자 등록은 하지 않아서 앱스토어에 등록 못함.
+
+---
+
+## 기능
+
+- 영화 api 를 받아와서 CollectionView 로 목록으로 구현함
+- 영화를 클릭 할 시 세부정보를 표시하는 화면으로 전환한다.
+- 세부 정보화면에는 영화 이미지, 제목, 개봉년도, 별점, 장르, 영화 url, 줄거리를 표시한다.
+
+## 추가할 내용
+
+- 장르 표시
+- 별점 별모양으로 변경
+- url 클릭시 웹뷰로 그 화면 전환 구현
+
+<img src = "../../images/MovieAppMain.png" > <img src = "../../images/MovieAppDetail.png" >
+
+## 배운 점
+
+- API 를 다루는 연습을 했다.
+- CollectionView를 사용해서 한 행에 여러 셀을 배치하는 법을 배웠다.
+- 커스텀 셀을 사용해 내가 원하는 모양으로 셀을 다뤘다.
+- 데이터 전달을 다루는 연습을 하게 되었다. \*\* 어려웠다.
+
+## 프로젝트 정리 블로그 https://dangsalcoding.tistory.com/40
