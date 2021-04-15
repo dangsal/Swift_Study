@@ -17,9 +17,10 @@ class DetailViewController: UIViewController {
     @IBOutlet var DetailUrl: UILabel!
     @IBOutlet var DetailTableView: UITableView!
 
+  
     
+
     
-    var movie : Movie?
     
     var detailTitle: String?
     var detailYear: String?
@@ -43,8 +44,20 @@ class DetailViewController: UIViewController {
         DetailUrl.text = detailUrl
         DetailYear.text = detailYear
         
+        let url = URL(string: detailImage!)
+        guard url != nil else{return}
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: url!) { (data, response, error) in
+            if (error == nil && data != nil){
+                DispatchQueue.main.async {
+                    self.DetailImg.image = UIImage(data: data!)
+                }
+            }
+        }
         
+        dataTask.resume()
     }
+    
 
     /*
     // MARK: - Navigation
