@@ -19,7 +19,7 @@
 - 뉴스 api 를 받아와서 TableView 로 목록으로 구현함
 - 뉴스를 클릭 할 시 그 webView 로 그 뉴스보여줌
 
-<img src = "../../images/NewsAppMain.png" > <img src = "../../images/NewsAppArticle.png" >
+<img src = "../../images/News.gif" >
 
 ## 배운 점
 
