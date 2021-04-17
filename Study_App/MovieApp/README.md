@@ -26,7 +26,7 @@
 - 별점 별모양으로 변경
 - url 클릭시 웹뷰로 그 화면 전환 구현
 
-<img src = "../../images/MovieAppMain.png" > <img src = "../../images/MovieAppDetail.png" >
+<img src = "../../images/MovieApp.gif" >
 
 ## 배운 점
 
