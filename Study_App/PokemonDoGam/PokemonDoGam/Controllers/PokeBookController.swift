@@ -10,6 +10,8 @@ import UIKit
 let reuseableIdentifier = "pokebookCell"
 
 class PokeBookController: UICollectionViewController {
+    // MARK: Properties
+    let pokemonService = PokemonService()
     // MARK: Init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +54,7 @@ class PokeBookController: UICollectionViewController {
         adjustColor()
         
         collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: reuseableIdentifier)
+        pokemonService.fetchPokemon()
     }
 }
 
