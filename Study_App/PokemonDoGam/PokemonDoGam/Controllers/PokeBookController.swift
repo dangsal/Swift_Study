@@ -44,6 +44,8 @@ class PokeBookController: UICollectionViewController {
         
         self.title = "포켓몬도감"
         
+        
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped)) //selector 부분은
             
         
@@ -66,7 +68,7 @@ extension PokeBookController {
     }
 }
 
-
+// MARK: UICollectionViewDelegateFlowLayout delegate functions
 extension PokeBookController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (view.frame.width - 36) / 3
