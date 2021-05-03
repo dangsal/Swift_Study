@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		41967528263FB98600D504AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41967527263FB98600D504AD /* AppDelegate.swift */; };
 		4196752A263FB98600D504AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41967529263FB98600D504AD /* SceneDelegate.swift */; };
-		4196752C263FB98600D504AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196752B263FB98600D504AD /* ViewController.swift */; };
 		4196752F263FB98600D504AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4196752D263FB98600D504AD /* Main.storyboard */; };
 		41967531263FB98800D504AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41967530263FB98800D504AD /* Assets.xcassets */; };
 		41967534263FB98800D504AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41967532263FB98800D504AD /* LaunchScreen.storyboard */; };
 		4196753D263FBA4500D504AD /* PokeBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196753C263FBA4500D504AD /* PokeBookController.swift */; };
+		41CF58BE263FD18C00D81D2B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF58BD263FD18C00D81D2B /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		41967524263FB98600D504AD /* PokemonDoGam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonDoGam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41967527263FB98600D504AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41967529263FB98600D504AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4196752B263FB98600D504AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4196752E263FB98600D504AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		41967530263FB98800D504AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41967533263FB98800D504AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41967535263FB98800D504AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4196753C263FBA4500D504AD /* PokeBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeBookController.swift; sourceTree = "<group>"; };
+		41CF58BD263FD18C00D81D2B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +58,10 @@
 		41967526263FB98600D504AD /* PokemonDoGam */ = {
 			isa = PBXGroup;
 			children = (
+				41CF58BC263FD17700D81D2B /* Utils */,
 				4196753B263FBA2600D504AD /* Controllers */,
 				41967527263FB98600D504AD /* AppDelegate.swift */,
 				41967529263FB98600D504AD /* SceneDelegate.swift */,
-				4196752B263FB98600D504AD /* ViewController.swift */,
 				4196752D263FB98600D504AD /* Main.storyboard */,
 				41967530263FB98800D504AD /* Assets.xcassets */,
 				41967532263FB98800D504AD /* LaunchScreen.storyboard */,
@@ -76,6 +76,14 @@
 				4196753C263FBA4500D504AD /* PokeBookController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		41CF58BC263FD17700D81D2B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				41CF58BD263FD18C00D81D2B /* Extension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,10 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4196752C263FB98600D504AD /* ViewController.swift in Sources */,
 				4196753D263FBA4500D504AD /* PokeBookController.swift in Sources */,
 				41967528263FB98600D504AD /* AppDelegate.swift in Sources */,
 				4196752A263FB98600D504AD /* SceneDelegate.swift in Sources */,
+				41CF58BE263FD18C00D81D2B /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
