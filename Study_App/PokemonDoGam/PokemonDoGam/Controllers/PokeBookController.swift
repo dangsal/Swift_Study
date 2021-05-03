@@ -7,6 +7,8 @@
 
 import UIKit
 
+let reuseableIdentifier = "pokebookCell"
+
 class PokeBookController: UICollectionViewController {
     // MARK: Init
     override func viewDidLoad() {
@@ -46,5 +48,32 @@ class PokeBookController: UICollectionViewController {
             
         
         adjustColor()
+        
+        collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: reuseableIdentifier)
+    }
+}
+
+// MARK: collectionViewCell delegate functions
+extension PokeBookController {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableIdentifier, for: indexPath) as! PokemonCell
+        
+        return cell
+    }
+}
+
+
+extension PokeBookController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (view.frame.width - 36) / 3
+        return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 32, left: 8, bottom: 8, right: 8)
     }
 }
