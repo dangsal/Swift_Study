@@ -17,9 +17,11 @@
 		4196753D263FBA4500D504AD /* PokeBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196753C263FBA4500D504AD /* PokeBookController.swift */; };
 		41CF58BE263FD18C00D81D2B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF58BD263FD18C00D81D2B /* Extension.swift */; };
 		41CF58C1263FE53300D81D2B /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF58C0263FE53300D81D2B /* PokemonCell.swift */; };
+		8D51E99DC9B2B4DE92A75F0F /* Pods_PokemonDoGam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FCAF0E9E639521396DC66CE /* Pods_PokemonDoGam.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FCAF0E9E639521396DC66CE /* Pods_PokemonDoGam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonDoGam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		415235FE264031F0005DE18B /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		415236012640329E005DE18B /* PokemonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonService.swift; sourceTree = "<group>"; };
 		41967524263FB98600D504AD /* PokemonDoGam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonDoGam.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +34,8 @@
 		4196753C263FBA4500D504AD /* PokeBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeBookController.swift; sourceTree = "<group>"; };
 		41CF58BD263FD18C00D81D2B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		41CF58C0263FE53300D81D2B /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
+		B1133C7669DEA0DB11560618 /* Pods-PokemonDoGam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonDoGam.debug.xcconfig"; path = "Target Support Files/Pods-PokemonDoGam/Pods-PokemonDoGam.debug.xcconfig"; sourceTree = "<group>"; };
+		CD2A58F36ACB49C9FE819204 /* Pods-PokemonDoGam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonDoGam.release.xcconfig"; path = "Target Support Files/Pods-PokemonDoGam/Pods-PokemonDoGam.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,12 +43,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D51E99DC9B2B4DE92A75F0F /* Pods_PokemonDoGam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		409E6779EB393D2BDE8876D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1133C7669DEA0DB11560618 /* Pods-PokemonDoGam.debug.xcconfig */,
+				CD2A58F36ACB49C9FE819204 /* Pods-PokemonDoGam.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		415235FD264031DD005DE18B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +81,8 @@
 			children = (
 				41967526263FB98600D504AD /* PokemonDoGam */,
 				41967525263FB98600D504AD /* Products */,
+				409E6779EB393D2BDE8876D4 /* Pods */,
+				DF9A71AC7B3BDDEFFA28D3AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +136,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DF9A71AC7B3BDDEFFA28D3AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FCAF0E9E639521396DC66CE /* Pods_PokemonDoGam.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +151,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41967538263FB98800D504AD /* Build configuration list for PBXNativeTarget "PokemonDoGam" */;
 			buildPhases = (
+				621D1E2A67DB5638ED91E296 /* [CP] Check Pods Manifest.lock */,
 				41967520263FB98600D504AD /* Sources */,
 				41967521263FB98600D504AD /* Frameworks */,
 				41967522263FB98600D504AD /* Resources */,
+				532B8D7D5F32A843CCA227A5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,6 +210,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		532B8D7D5F32A843CCA227A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokemonDoGam/Pods-PokemonDoGam-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokemonDoGam/Pods-PokemonDoGam-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokemonDoGam/Pods-PokemonDoGam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		621D1E2A67DB5638ED91E296 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokemonDoGam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		41967520263FB98600D504AD /* Sources */ = {
@@ -339,6 +408,7 @@
 		};
 		41967539263FB98800D504AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1133C7669DEA0DB11560618 /* Pods-PokemonDoGam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -357,6 +427,7 @@
 		};
 		4196753A263FB98800D504AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD2A58F36ACB49C9FE819204 /* Pods-PokemonDoGam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

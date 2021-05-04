@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PokemonCell: UICollectionViewCell {
     
@@ -13,6 +14,10 @@ class PokemonCell: UICollectionViewCell {
         didSet{
             guard let pokemon = self.pokemon else {return}
             self.pokemonName.text = pokemon.name
+            guard let imageUrl = self.pokemon?.imageUrl else {return}
+            if let url = URL(string: imageUrl){
+                self.imageView.sd_setImage(with: url, completed: nil)
+            }
         }
     }
     
