@@ -12,6 +12,14 @@ let reuseableIdentifier = "pokebookCell"
 class PokeBookController: UICollectionViewController {
     // MARK: Properties
     let pokemonService = PokemonService()
+    
+    var pokemons = [Pokemon](){
+        didSet {
+            // 해당 변수의 값이 변할 때마다 여기가 실행된다.
+            self.collectionView.reloadData()
+        }
+    }
+    
     // MARK: Init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,17 +63,21 @@ class PokeBookController: UICollectionViewController {
         
         collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: reuseableIdentifier)
         pokemonService.fetchPokemon()
+        pokemonService.delegate = self
     }
 }
 
 // MARK: collectionViewCell delegate functions
 extension PokeBookController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return pokemons.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableIdentifier, for: indexPath) as! PokemonCell
+        
+        let pokemon = self.pokemons[indexPath.row]
+        cell.pokemon = pokemon
         
         return cell
     }
@@ -81,4 +93,14 @@ extension PokeBookController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 32, left: 8, bottom: 8, right: 8)
     }
+}
+
+extension PokeBookController: PokemonServiceProtocol {
+    func pokemonService(pokemons: [Pokemon]) {
+        print(pokemons)
+        self.pokemons = pokemons
+        
+    }
+    
+    
 }

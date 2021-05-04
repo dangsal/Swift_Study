@@ -9,6 +9,13 @@ import UIKit
 
 class PokemonCell: UICollectionViewCell {
     
+    var pokemon: Pokemon?{
+        didSet{
+            guard let pokemon = self.pokemon else {return}
+            self.pokemonName.text = pokemon.name
+        }
+    }
+    
     // MARK: Properties
     lazy var imageView:UIImageView = {
        let iv = UIImageView()
@@ -29,7 +36,7 @@ class PokemonCell: UICollectionViewCell {
     
     lazy var pokemonName: UILabel = {
         let label = UILabel()
-        label.text = "dangsal"
+  
         label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()

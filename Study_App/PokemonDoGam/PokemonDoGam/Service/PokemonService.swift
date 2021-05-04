@@ -7,9 +7,15 @@
 
 import Foundation
 
+protocol PokemonServiceProtocol {
+    func pokemonService(pokemons:[Pokemon])
+}
+
 
 class PokemonService {
     let url = "https://pokemon.treduler.pro/"
+    
+    var delegate: PokemonServiceProtocol?
     
     func fetchPokemon(){
         if let url = URL(string: url) {
@@ -21,7 +27,9 @@ class PokemonService {
                     if let data = data {
                         do {
                             let pokemons = try JSONDecoder().decode([Pokemon].self, from: data)
-                            print(pokemons)
+                            DispatchQueue.main.async {
+                                self.delegate?.pokemonService(pokemons: pokemons)
+                            }
                         } catch let error {
                             print("에러가 발생했습니다.")
                             print(error.localizedDescription)
