@@ -47,7 +47,13 @@ class PokemonCell: UICollectionViewCell {
     }()
     
     
-    
+    // MARK: selector
+    @objc func longPress(sender:UILongPressGestureRecognizer){
+
+        if sender.state == UIGestureRecognizer.State.began {
+            print("press")
+        }
+    }
     
     
     override init(frame: CGRect) {
@@ -65,6 +71,9 @@ class PokemonCell: UICollectionViewCell {
     func configureViewComponents(){
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+        self.addGestureRecognizer(longPressRecognizer)
         
         
         self.addSubview(imageView)

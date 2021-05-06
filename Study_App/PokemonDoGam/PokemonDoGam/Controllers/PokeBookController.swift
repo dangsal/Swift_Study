@@ -97,7 +97,6 @@ extension PokeBookController: UICollectionViewDelegateFlowLayout {
 
 extension PokeBookController: PokemonServiceProtocol {
     func pokemonService(pokemons: [Pokemon]) {
-        print(pokemons)
         self.pokemons = pokemons
         
     }
