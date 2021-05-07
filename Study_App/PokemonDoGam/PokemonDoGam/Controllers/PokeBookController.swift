@@ -47,6 +47,9 @@ class PokeBookController: UICollectionViewController {
         print("search tapped")
     }
     
+    @objc func blurViewTapped(){
+        removeInfoViewAnimation()
+    }
     
     func adjustColor(){
         if self.traitCollection.userInterfaceStyle == .dark {
@@ -58,6 +61,18 @@ class PokeBookController: UICollectionViewController {
         }
     }
     // MARK: Helper
+    func removeInfoViewAnimation(){
+        UIView.animate(withDuration: 0.3) {
+            self.blurEffectView.alpha = 0
+            self.infoView.alpha = 0
+            self.infoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        } completion: { (_) in
+            self.infoView.removeFromSuperview()
+        }
+
+    }
+    
+    
     func configViewControllers(){
         collectionView.backgroundColor = .systemBackground
         navigationController?.navigationBar.barTintColor = UIColor.mainColor
@@ -83,7 +98,9 @@ class PokeBookController: UICollectionViewController {
         blurEffectView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         blurEffectView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         blurEffectView.alpha = 0
-
+        
+        let blurViewTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(blurViewTapped))
+        blurEffectView.addGestureRecognizer(blurViewTapGestureRecognizer)
 
     }
 }
@@ -129,13 +146,13 @@ extension PokeBookController: PokemonCellProtocol {
     func showPopUp(pokemon: Pokemon) {
         collectionView.addSubview(infoView)
         infoView.translatesAutoresizingMaskIntoConstraints = false
-        infoView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
-        infoView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: -55).isActive = true
+        infoView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        infoView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -55).isActive = true
         infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
         infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
         infoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         infoView.alpha = 0
-
+        infoView.delegate = self
         
         UIView.animate(withDuration: 0.3) {
             self.blurEffectView.alpha = 1
@@ -145,4 +162,10 @@ extension PokeBookController: PokemonCellProtocol {
     }
     
     
+}
+
+extension PokeBookController: InfoViewProtocol {
+    func removeInfoView() {
+        removeInfoViewAnimation()
+    }
 }

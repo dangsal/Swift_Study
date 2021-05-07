@@ -7,7 +7,13 @@
     
 import UIKit
 
+protocol InfoViewProtocol {
+    func removeInfoView()
+}
+
 class InfoView: UIView {
+    
+    var delegate : InfoViewProtocol?
     //MARK: Properties
     lazy var nameView:UIView = {
        let view = UIView()
@@ -50,7 +56,7 @@ class InfoView: UIView {
     
     // MARK: Selectors
     @objc func goToDetailButtonTapped(){
-        print("Tapped")
+        delegate?.removeInfoView()
     }
     
     
