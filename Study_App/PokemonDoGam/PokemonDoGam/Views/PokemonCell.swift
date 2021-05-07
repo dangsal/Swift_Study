@@ -8,7 +8,13 @@
 import UIKit
 import SDWebImage
 
+protocol PokemonCellProtocol {
+    func showPopUp(pokemon: Pokemon)
+}
+
 class PokemonCell: UICollectionViewCell {
+    
+    var delegate : PokemonCellProtocol?
     
     var pokemon: Pokemon?{
         didSet{
@@ -51,7 +57,8 @@ class PokemonCell: UICollectionViewCell {
     @objc func longPress(sender:UILongPressGestureRecognizer){
 
         if sender.state == UIGestureRecognizer.State.began {
-            print("press")
+            guard let pokemon = self.pokemon else {return}
+            delegate?.showPopUp(pokemon: pokemon)
         }
     }
     

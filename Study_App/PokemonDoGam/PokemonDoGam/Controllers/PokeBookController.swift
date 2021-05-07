@@ -25,6 +25,12 @@ class PokeBookController: UICollectionViewController {
         return view
     }()
     
+    lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        return blurEffectView
+    }()
+    
     // MARK: Init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,12 +76,14 @@ class PokeBookController: UICollectionViewController {
         pokemonService.fetchPokemon()
         pokemonService.delegate = self
         
-        collectionView.addSubview(infoView)
-        infoView.translatesAutoresizingMaskIntoConstraints = false
-        infoView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
-        infoView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: -55).isActive = true
-        infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
-        infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
+        collectionView.addSubview(blurEffectView)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        blurEffectView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        blurEffectView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        blurEffectView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        blurEffectView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        blurEffectView.alpha = 0
+
 
     }
 }
@@ -91,7 +99,7 @@ extension PokeBookController {
         
         let pokemon = self.pokemons[indexPath.row]
         cell.pokemon = pokemon
-        
+        cell.delegate = self
         return cell
     }
 }
@@ -112,6 +120,28 @@ extension PokeBookController: PokemonServiceProtocol {
     func pokemonService(pokemons: [Pokemon]) {
         self.pokemons = pokemons
         
+    }
+    
+    
+}
+
+extension PokeBookController: PokemonCellProtocol {
+    func showPopUp(pokemon: Pokemon) {
+        collectionView.addSubview(infoView)
+        infoView.translatesAutoresizingMaskIntoConstraints = false
+        infoView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
+        infoView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: -55).isActive = true
+        infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
+        infoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        infoView.alpha = 0
+
+        
+        UIView.animate(withDuration: 0.3) {
+            self.blurEffectView.alpha = 1
+            self.infoView.transform = .identity
+            self.infoView.alpha = 1
+        }
     }
     
     
