@@ -153,6 +153,7 @@ extension PokeBookController: PokemonCellProtocol {
         infoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         infoView.alpha = 0
         infoView.delegate = self
+        infoView.pokemon = pokemon
         
         UIView.animate(withDuration: 0.3) {
             self.blurEffectView.alpha = 1

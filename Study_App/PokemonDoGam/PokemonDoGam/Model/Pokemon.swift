@@ -12,7 +12,7 @@ struct Pokemon:Codable {
     var name: String?
     var imageUrl: String?
     var id: Int?
-    var weigh: Int?
+    var weight: Int?
     var height: Int?
     var defense: Int?
     var attack: Int?
