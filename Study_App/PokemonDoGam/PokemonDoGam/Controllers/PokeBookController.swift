@@ -20,6 +20,9 @@ class PokeBookController: UICollectionViewController {
         }
     }
     
+    var searchedPokemons = [Pokemon]()
+    var searchMode = false
+    
     lazy var searchBar : UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.sizeToFit()
@@ -135,20 +138,44 @@ class PokeBookController: UICollectionViewController {
 // MARK: collectionViewCell delegate functions
 extension PokeBookController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemons.count
+        
+        if searchMode == false {
+            return pokemons.count
+        } else {
+            return searchedPokemons.count
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
-        let pokemon = self.pokemons[indexPath.row]
         
-        navigationToDeatailController(pokemon: pokemon)
+        var pokemon:Pokemon?
+        
+        if searchMode == false {
+            pokemon = self.pokemons[indexPath.row]
+        } else {
+            pokemon = self.searchedPokemons[indexPath.row]
+        }
+        
+        if pokemon != nil {
+            navigationToDeatailController(pokemon: pokemon!)
+        }
+        
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableIdentifier, for: indexPath) as! PokemonCell
         
-        let pokemon = self.pokemons[indexPath.row]
+        var pokemon:Pokemon?
+        
+        if searchMode == false {
+            pokemon = self.pokemons[indexPath.row]
+        } else {
+            pokemon = self.searchedPokemons[indexPath.row]
+        }
+    
+        
         cell.pokemon = pokemon
         cell.delegate = self
         return cell
@@ -214,10 +241,24 @@ extension PokeBookController: InfoViewProtocol {
 extension PokeBookController:UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         removeSearchBar()
+        self.searchBar.text = ""
+        searchMode = false
+        collectionView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        <#code#>
+        if searchText == "" {
+            searchMode = false
+        } else {
+            searchMode = true
+            let matchingPokemons = self.pokemons.filter { pokemon in
+                guard let name = pokemon.name else { return false }
+                return name.lowercased().contains(searchText.lowercased())
+            }
+            self.searchedPokemons = matchingPokemons
+        }
+        
+        collectionView.reloadData()
     }
     
 }
