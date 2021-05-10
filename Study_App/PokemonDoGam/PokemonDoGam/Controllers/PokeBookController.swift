@@ -166,7 +166,14 @@ extension PokeBookController: PokemonCellProtocol {
 }
 
 extension PokeBookController: InfoViewProtocol {
-    func removeInfoView() {
+    func removeInfoView(pokemon: Pokemon) {
         removeInfoViewAnimation()
+        let pokemonDetailController = PokemonDetailController()
+        pokemonDetailController.pokemon = pokemon
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.navigationController?.pushViewController(pokemonDetailController, animated: true)
+        }
+
     }
 }
