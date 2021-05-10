@@ -61,6 +61,12 @@ class PokeBookController: UICollectionViewController {
         }
     }
     // MARK: Helper
+    func navigationToDeatailController(pokemon:Pokemon){
+        let pokemonDetailController = PokemonDetailController()
+        pokemonDetailController.pokemon = pokemon
+        self.navigationController?.pushViewController(pokemonDetailController, animated: true)
+    }
+
     func removeInfoViewAnimation(){
         UIView.animate(withDuration: 0.3) {
             self.blurEffectView.alpha = 0
@@ -109,6 +115,13 @@ class PokeBookController: UICollectionViewController {
 extension PokeBookController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pokemons.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+        let pokemon = self.pokemons[indexPath.row]
+        
+        navigationToDeatailController(pokemon: pokemon)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -168,11 +181,10 @@ extension PokeBookController: PokemonCellProtocol {
 extension PokeBookController: InfoViewProtocol {
     func removeInfoView(pokemon: Pokemon) {
         removeInfoViewAnimation()
-        let pokemonDetailController = PokemonDetailController()
-        pokemonDetailController.pokemon = pokemon
+
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.navigationController?.pushViewController(pokemonDetailController, animated: true)
+            self.navigationToDeatailController(pokemon: pokemon)
         }
 
     }
