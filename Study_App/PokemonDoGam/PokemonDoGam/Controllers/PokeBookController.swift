@@ -20,6 +20,14 @@ class PokeBookController: UICollectionViewController {
         }
     }
     
+    lazy var searchBar : UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        searchBar.showsCancelButton = true
+        searchBar.delegate = self
+        return searchBar
+    }()
+    
     lazy var infoView:InfoView = {
        let view = InfoView()
         return view
@@ -44,7 +52,7 @@ class PokeBookController: UICollectionViewController {
     
     // MARK: Selectors 함수를 추가할 때는 @objc 붙여야함
     @objc func searchTapped(){
-        print("search tapped")
+        configureSearchBar()
     }
     
     @objc func blurViewTapped(){
@@ -61,6 +69,19 @@ class PokeBookController: UICollectionViewController {
         }
     }
     // MARK: Helper
+    
+    func removeSearchBar(){
+        self.navigationItem.titleView = nil
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
+        adjustColor()
+    }
+    
+    func configureSearchBar(){
+        self.navigationItem.titleView = searchBar
+        self.navigationItem.rightBarButtonItem = nil
+        searchBar.becomeFirstResponder()
+    }
+    
     func navigationToDeatailController(pokemon:Pokemon){
         let pokemonDetailController = PokemonDetailController()
         pokemonDetailController.pokemon = pokemon
@@ -188,4 +209,15 @@ extension PokeBookController: InfoViewProtocol {
         }
 
     }
+}
+
+extension PokeBookController:UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        removeSearchBar()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        <#code#>
+    }
+    
 }
