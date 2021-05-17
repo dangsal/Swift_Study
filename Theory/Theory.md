@@ -634,3 +634,23 @@ print(Compass.N)  // 	N
 var direction = Compass.W
 direction = .E
 ```
+
+## Any, AnyObject
+
+### Any
+
+1. 어떤 타입도 수용가능
+
+```swift
+var someAny: Any = 100
+```
+
+### AnyObject
+
+1. 모든 클래스 타입을 지칭하는 프로토콜
+
+```swift
+class SomeClass{}
+
+var someAnyObject: AnyObject = SomeClass()
+```
