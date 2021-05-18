@@ -15,13 +15,17 @@ class TableViewCell : UITableViewCell {
         didSet{
             guard let articles = self.articles else {return}
             self.newsTitle.text = articles.title
+            self.newsDiscription.text = articles.description
             
-            guard let imageUrl = self.articles?.urlToImage else {return}
+            guard let imageUrl = self.articles?.urlToImage else {
+                let placeholderImage = UIImage(named: "placeholder.png")
+                newsImage.image = placeholderImage
+                return
+            }
             if let url = URL(string: imageUrl){
                 self.newsImage.sd_setImage(with: url, completed: nil)
             } else {
-                let placeholderImage = UIImage(named: "placeholder.png")
-                newsImage.image = placeholderImage
+
             }
         }
     }
@@ -29,12 +33,24 @@ class TableViewCell : UITableViewCell {
     lazy var newsImage: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
+        iv.layer.cornerRadius = 5
+        iv.layer.masksToBounds = true
         return iv
     }()
     
     lazy var newsTitle: UILabel = {
         let label = UILabel()
         label.text = "dangsal's coding"
+        label.numberOfLines = 2
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        return label
+    }()
+    
+    lazy var newsDiscription: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 3
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = .systemGray
         return label
     }()
     
@@ -56,15 +72,23 @@ class TableViewCell : UITableViewCell {
         addSubview(newsImage)
         newsImage.translatesAutoresizingMaskIntoConstraints = false
         newsImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        newsImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        newsImage.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        newsImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10).isActive = true
+        newsImage.widthAnchor.constraint(equalToConstant: 140).isActive = true
         newsImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
         
         addSubview(newsTitle)
         newsTitle.translatesAutoresizingMaskIntoConstraints = false
         newsTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        newsTitle.leftAnchor.constraint(equalTo: newsImage.rightAnchor, constant: 20).isActive = true
+        newsTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        newsTitle.rightAnchor.constraint(equalTo: newsImage.leftAnchor, constant: -10).isActive = true
+        
 
+        addSubview(newsDiscription)
+        newsDiscription.translatesAutoresizingMaskIntoConstraints = false
+        newsDiscription.topAnchor.constraint(equalTo: newsTitle.bottomAnchor, constant: 20).isActive = true
+        newsDiscription.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        newsDiscription.rightAnchor.constraint(equalTo: newsImage.leftAnchor, constant: -10).isActive = true
+        newsDiscription.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
 
         
     }

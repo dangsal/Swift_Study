@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 private let reuseableIdentifier = "cell"
 
@@ -26,6 +27,12 @@ class TableViewController : UITableViewController {
         configureComponent()
 
     }
+    //MARK: Selector
+    
+    
+    
+    //MARK: Helper
+
     
     //MARK: ConfigureComponent
     func configureComponent(){
@@ -33,9 +40,11 @@ class TableViewController : UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         tableView.register(TableViewCell.self, forCellReuseIdentifier: reuseableIdentifier)
+        tableView.separatorStyle = .none
         newsService.fetchNews()
         newsService.delegate = self
         
+
     }
 }
 
@@ -51,7 +60,20 @@ extension TableViewController {
         
         let article = self.articles[indexPath.row]
         cell.articles = article
+        cell.layer.borderWidth = 0.3
+        cell.layer.borderColor = UIColor.systemGray.cgColor
         return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let article = articles[indexPath.row]
+        
+        if let url = URL(string: article.url!){
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true, completion: nil)
+        }
     }
     
 }
