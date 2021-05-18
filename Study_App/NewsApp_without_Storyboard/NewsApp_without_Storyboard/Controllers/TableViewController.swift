@@ -33,7 +33,6 @@ class TableViewController : UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         tableView.register(TableViewCell.self, forCellReuseIdentifier: reuseableIdentifier)
-        
         newsService.fetchNews()
         newsService.delegate = self
         
@@ -56,7 +55,11 @@ extension TableViewController {
     }
     
 }
-
+extension TableViewController {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+}
 
 extension TableViewController: NewsServiceProtocol {
     func newsService(articles: [Articles]) {

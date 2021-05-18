@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TableViewCell : UITableViewCell {
     //MARK: Property
@@ -14,8 +15,22 @@ class TableViewCell : UITableViewCell {
         didSet{
             guard let articles = self.articles else {return}
             self.newsTitle.text = articles.title
+            
+            guard let imageUrl = self.articles?.urlToImage else {return}
+            if let url = URL(string: imageUrl){
+                self.newsImage.sd_setImage(with: url, completed: nil)
+            } else {
+                let placeholderImage = UIImage(named: "placeholder.png")
+                newsImage.image = placeholderImage
+            }
         }
     }
+    
+    lazy var newsImage: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleToFill
+        return iv
+    }()
     
     lazy var newsTitle: UILabel = {
         let label = UILabel()
@@ -38,10 +53,19 @@ class TableViewCell : UITableViewCell {
     func configure(){
         backgroundColor = .systemBackground
         
+        addSubview(newsImage)
+        newsImage.translatesAutoresizingMaskIntoConstraints = false
+        newsImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        newsImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        newsImage.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        newsImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        
         addSubview(newsTitle)
         newsTitle.translatesAutoresizingMaskIntoConstraints = false
-        newsTitle.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        newsTitle.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        newsTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        newsTitle.leftAnchor.constraint(equalTo: newsImage.rightAnchor, constant: 20).isActive = true
+
+
         
     }
 }
