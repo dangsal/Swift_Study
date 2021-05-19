@@ -15,6 +15,10 @@ class CollectionViewCell : UICollectionViewCell {
         didSet{
             guard let movies = self.movies else { return }
             self.movieTitle.text = movies.title
+            if let url = URL(string: movies.medium_cover_image!){
+                self.imageView.sd_setImage(with: url, completed: nil)
+            }
+            
         }
     }
     

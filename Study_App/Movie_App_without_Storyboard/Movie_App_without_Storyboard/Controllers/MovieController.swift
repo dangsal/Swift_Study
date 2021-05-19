@@ -50,11 +50,11 @@ class MovieController : UICollectionViewController {
     func configuresComponents(){
         
         collectionView.addSubview(infoView)
-//        infoView.translatesAutoresizingMaskIntoConstraints = false
-//        infoView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor, constant: 0).isActive = true
-//        infoView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: 0).isActive = true
-//        infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
-//        infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        infoView.translatesAutoresizingMaskIntoConstraints = false
+        infoView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor, constant: 0).isActive = true
+        infoView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: 0).isActive = true
+        infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
+        infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
     }
     
 }
@@ -62,13 +62,19 @@ class MovieController : UICollectionViewController {
 extension MovieController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return movies.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableIdentifier, for: indexPath) as! CollectionViewCell
         
+        let movies = self.movies[indexPath.row]
+        cell.movies = movies
         return cell
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+        
     }
     
 }
