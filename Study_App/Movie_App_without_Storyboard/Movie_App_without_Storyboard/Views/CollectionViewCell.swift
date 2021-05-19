@@ -15,7 +15,7 @@ class CollectionViewCell : UICollectionViewCell {
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
-        iv.backgroundColor = .systemRed
+        iv.backgroundColor = .systemGray
         return iv
     }()
     

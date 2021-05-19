@@ -11,10 +11,18 @@ private let reuseableIdentifier = "cell"
 
 class MovieController : UICollectionViewController {
     
+    //MARK: Property
+    lazy var infoView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .mainColor
+        return view
+    }()
+    
     //MARK: Init
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        
     }
     
     //MARK: Configure
@@ -26,9 +34,21 @@ class MovieController : UICollectionViewController {
         
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: reuseableIdentifier)
         
+        configuresComponents()
+        
     }
     
     //MARK: ConfigureComponents
+    func configuresComponents(){
+        
+        collectionView.addSubview(infoView)
+        infoView.translatesAutoresizingMaskIntoConstraints = false
+        infoView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor, constant: 0).isActive = true
+        infoView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: 0).isActive = true
+        infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
+        infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+    }
+    
 }
 
 extension MovieController {
