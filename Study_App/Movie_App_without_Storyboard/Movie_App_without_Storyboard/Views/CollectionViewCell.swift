@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CollectionViewCell : UICollectionViewCell {
     
     //MARK: Property
-    let movieService = MovieService()
+    var movies: Movie?{
+        didSet{
+            guard let movies = self.movies else { return }
+            self.movieTitle.text = movies.title
+        }
+    }
     
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
@@ -38,7 +44,7 @@ class CollectionViewCell : UICollectionViewCell {
         super.init(frame: frame)
         configure()
         configureComponents()
-        movieService.fetchMovie()
+
     }
     
     required init?(coder: NSCoder) {

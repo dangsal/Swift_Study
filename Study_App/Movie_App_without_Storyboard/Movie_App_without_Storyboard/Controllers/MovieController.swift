@@ -12,9 +12,15 @@ private let reuseableIdentifier = "cell"
 class MovieController : UICollectionViewController {
     
     //MARK: Property
-    lazy var infoView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .mainColor
+    let movieService = MovieService()
+    var movies = [Movie](){
+        didSet{
+            collectionView.reloadData()
+        }
+    }
+    
+    lazy var infoView: InfoView = {
+        let view = InfoView()
         return view
     }()
     
@@ -35,6 +41,8 @@ class MovieController : UICollectionViewController {
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: reuseableIdentifier)
         
         configuresComponents()
+        movieService.fetchMovie()
+        movieService.delegate = self
         
     }
     
@@ -42,11 +50,11 @@ class MovieController : UICollectionViewController {
     func configuresComponents(){
         
         collectionView.addSubview(infoView)
-        infoView.translatesAutoresizingMaskIntoConstraints = false
-        infoView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor, constant: 0).isActive = true
-        infoView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: 0).isActive = true
-        infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
-        infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+//        infoView.translatesAutoresizingMaskIntoConstraints = false
+//        infoView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor, constant: 0).isActive = true
+//        infoView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: 0).isActive = true
+//        infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
+//        infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
     }
     
 }
@@ -75,5 +83,13 @@ extension MovieController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
     }
+    
+}
+
+extension MovieController : MovieServiceProtocol{
+    func MovieServiceProtocol(movies: [Movie]) {
+        self.movies = movies
+    }
+    
     
 }

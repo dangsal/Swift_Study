@@ -7,7 +7,13 @@
 
 import Foundation
 
+protocol MovieServiceProtocol {
+    func MovieServiceProtocol(movies: [Movie])
+}
+
 class MovieService {
+    
+    var delegate : MovieServiceProtocol?
     
     let url = "https://yts-proxy.now.sh/list_movies.json"
     
@@ -20,7 +26,9 @@ class MovieService {
                     if let data = data {
                         do{
                             let movies = try JSONDecoder().decode(MovieDataAccess.self, from: data)
-                            print(movies)
+                            DispatchQueue.main.async {
+                                self.delegate?.MovieServiceProtocol(movies: movies.data.movies!)
+                            }
                         }catch {
                             print(error.localizedDescription)
                         }
