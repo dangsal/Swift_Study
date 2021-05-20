@@ -49,12 +49,7 @@ class MovieController : UICollectionViewController {
     //MARK: ConfigureComponents
     func configuresComponents(){
         
-        collectionView.addSubview(infoView)
-        infoView.translatesAutoresizingMaskIntoConstraints = false
-        infoView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor, constant: 0).isActive = true
-        infoView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: 0).isActive = true
-        infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
-        infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+
     }
     
 }
@@ -70,6 +65,7 @@ extension MovieController {
         
         let movies = self.movies[indexPath.row]
         cell.movies = movies
+        cell.delegate = self
         return cell
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -95,6 +91,20 @@ extension MovieController: UICollectionViewDelegateFlowLayout {
 extension MovieController : MovieServiceProtocol{
     func MovieServiceProtocol(movies: [Movie]) {
         self.movies = movies
+    }
+    
+    
+}
+
+extension MovieController : CollectionViewCellProtocol {
+    func showPopUp(movie: Movie) {
+
+        collectionView.addSubview(infoView)
+        infoView.translatesAutoresizingMaskIntoConstraints = false
+        infoView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor, constant: 0).isActive = true
+        infoView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: 0).isActive = true
+        infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
+        infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
     }
     
     

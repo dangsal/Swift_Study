@@ -8,9 +8,16 @@
 import UIKit
 import SDWebImage
 
+protocol CollectionViewCellProtocol {
+    func showPopUp(movie: Movie)
+}
+
 class CollectionViewCell : UICollectionViewCell {
     
     //MARK: Property
+    
+    var delegate : CollectionViewCellProtocol?
+    
     var movies: Movie?{
         didSet{
             guard let movies = self.movies else { return }
@@ -46,7 +53,6 @@ class CollectionViewCell : UICollectionViewCell {
     //MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
         configureComponents()
 
     }
@@ -55,13 +61,21 @@ class CollectionViewCell : UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: Configure
-    func configure(){
-        
+    //MARK: Selectors
+    @objc func longPress(sender:UILongPressGestureRecognizer){
+        if sender.state == UIGestureRecognizer.State.began {
+            guard let movie = self.movies else {return}
+            delegate?.showPopUp(movie: movie)
+            
+        }
     }
+
     
     //MARK: ConfigureComponents
     func configureComponents(){
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+        self.addGestureRecognizer(longPressRecognizer)
         
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
