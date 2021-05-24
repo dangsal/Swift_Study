@@ -27,6 +27,7 @@ struct Movie: Codable {
     var rating: Double?
     var summary: String?
     var year: Int?
+    var background_image: String?
     var medium_cover_image: String?
     var url: String?
     var genres: [String]?

@@ -18,6 +18,13 @@ class MovieController : UICollectionViewController {
             collectionView.reloadData()
         }
     }
+    lazy var searchBar: UISearchBar = {
+        let bar = UISearchBar()
+        bar.sizeToFit()
+        bar.showsCancelButton = true
+        bar.delegate = self
+        return bar
+    }()
     
     lazy var infoView: InfoView = {
         let view = InfoView()
@@ -42,7 +49,17 @@ class MovieController : UICollectionViewController {
         removeInfoAnimation()
     }
     
+    @objc func searchTapped(){
+        configureSearchBar()
+    }
+    
     //MARK: Configure
+    func configureSearchBar(){
+        self.navigationItem.titleView = searchBar
+//        self.navigationItem.rightBarButtonItem = nil
+        searchBar.becomeFirstResponder()
+    }
+    
     func configure(){
         collectionView.backgroundColor = .systemBackground
         navigationItem.title = "MovieApp"
@@ -161,6 +178,7 @@ extension MovieController : CollectionViewCellProtocol {
     
     
 }
+
 extension MovieController : InfoViewProtocol {
     func removeInfoView(movie: Movie) {
         removeInfoAnimation()
@@ -169,4 +187,8 @@ extension MovieController : InfoViewProtocol {
         }
     }
 
+}
+
+extension MovieController : UISearchBarDelegate{
+    
 }
