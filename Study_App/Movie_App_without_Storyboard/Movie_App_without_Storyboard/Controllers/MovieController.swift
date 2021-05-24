@@ -84,6 +84,13 @@ class MovieController : UICollectionViewController {
 
     }
     
+    func navigationToDetailViewController(movie: Movie){
+        let movieDetailViewController = MovieDetailViewController()
+        movieDetailViewController.movie = movie
+        
+        self.navigationController?.pushViewController(movieDetailViewController, animated: true)
+    }
+    
 }
 
 extension MovieController {
@@ -101,7 +108,9 @@ extension MovieController {
         return cell
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        
+        let movie = self.movies[indexPath.row]
+        navigationToDetailViewController(movie: movie)
         
     }
     
@@ -115,7 +124,7 @@ extension MovieController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        return UIEdgeInsets(top: 40, left: 10, bottom: 10, right: 10)
     }
     
 }
@@ -137,6 +146,7 @@ extension MovieController : CollectionViewCellProtocol {
         infoView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
         infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
         infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        
         infoView.alpha = 0
         infoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         infoView.delegate = self
@@ -152,7 +162,11 @@ extension MovieController : CollectionViewCellProtocol {
     
 }
 extension MovieController : InfoViewProtocol {
-    func removeInfoView() {
+    func removeInfoView(movie: Movie) {
         removeInfoAnimation()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.navigationToDetailViewController(movie: movie)
+        }
     }
+
 }

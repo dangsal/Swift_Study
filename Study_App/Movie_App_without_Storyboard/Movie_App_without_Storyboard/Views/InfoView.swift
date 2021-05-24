@@ -8,7 +8,7 @@
 import UIKit
 
 protocol InfoViewProtocol{
-    func removeInfoView()
+    func removeInfoView(movie: Movie)
 }
 
 class InfoView : UIView {
@@ -53,12 +53,32 @@ class InfoView : UIView {
     }()
     
     
+    lazy var summaryLabel: UILabel = {
+        let label = UILabel()
+        label.text = "줄거리"
+        label.font = UIFont.systemFont(ofSize: 18)
+        return label
+    }()
+    
+    lazy var summaryValueLabel: UILabel = {
+        let label = UILabel()
+        label.text = "줄거리 정보 없음"
+        label.numberOfLines = 14
+        return label
+    }()
+    
     //MARK: Selector
     @objc func goToDetailTapped(){
-        delegate?.removeInfoView()
+        delegate?.removeInfoView(movie: movie!)
     }
     
+    //MARK: Helper
     
+    func configureMovie(){
+        guard let movie = self.movie else {return}
+        nameLable.text = movie.title
+        summaryValueLabel.text = movie.summary
+    }
     
     
     //MARK: Init
@@ -74,22 +94,31 @@ class InfoView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: Helper
-    
-    func configureMovie(){
-        guard let movie = self.movie else {return}
-        nameLable.text = movie.title
-    }
+
     
     //MARK: ConfigureComponents
     func configureComponets(){
         backgroundColor = .systemGroupedBackground
+        self.layer.cornerRadius = 8
+        self.layer.masksToBounds = true
         
         addSubview(nameView)
         nameView.translatesAutoresizingMaskIntoConstraints = false
         nameView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         nameView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         nameView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        addSubview(summaryLabel)
+        summaryLabel.translatesAutoresizingMaskIntoConstraints = false
+        summaryLabel.topAnchor.constraint(equalTo: nameView.bottomAnchor, constant: 20).isActive = true
+        summaryLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        addSubview(summaryValueLabel)
+        summaryValueLabel.translatesAutoresizingMaskIntoConstraints = false
+        summaryValueLabel.topAnchor.constraint(equalTo: summaryLabel.bottomAnchor, constant: 20).isActive = true
+        summaryValueLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        summaryValueLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
+        
         
         addSubview(goToDetailButton)
         goToDetailButton.translatesAutoresizingMaskIntoConstraints = false

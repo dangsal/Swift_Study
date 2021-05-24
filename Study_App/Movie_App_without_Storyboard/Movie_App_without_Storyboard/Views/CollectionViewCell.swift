@@ -32,8 +32,8 @@ class CollectionViewCell : UICollectionViewCell {
     
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-        iv.backgroundColor = .systemGray
+        iv.contentMode = .scaleAspectFill
+        iv.backgroundColor = .systemBackground
         return iv
     }()
     
@@ -48,6 +48,7 @@ class CollectionViewCell : UICollectionViewCell {
         let label = UILabel()
         label.text = "Year"
         label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = .systemGray
         return label
     }()
     
@@ -83,18 +84,18 @@ class CollectionViewCell : UICollectionViewCell {
         imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         imageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         imageView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7).isActive = true
+        imageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.6).isActive = true
         
         addSubview(movieTitle)
         movieTitle.translatesAutoresizingMaskIntoConstraints = false
-        movieTitle.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10).isActive = true
+        movieTitle.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 40).isActive = true
         movieTitle.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         movieTitle.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         movieTitle.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         addSubview(movieYear)
         movieYear.translatesAutoresizingMaskIntoConstraints = false
-        movieYear.topAnchor.constraint(equalTo: movieTitle.bottomAnchor, constant: 10).isActive = true
+        movieYear.topAnchor.constraint(equalTo: movieTitle.bottomAnchor, constant: 0).isActive = true
         movieYear.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         movieYear.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         movieYear.heightAnchor.constraint(equalToConstant: 20).isActive = true
