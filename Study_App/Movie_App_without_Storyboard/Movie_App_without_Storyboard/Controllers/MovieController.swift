@@ -12,6 +12,8 @@ private let reuseableIdentifier = "cell"
 class MovieController : UICollectionViewController {
     
     //MARK: Property
+    let refreshControl = UIRefreshControl()
+    
     var searchedMovie = [Movie]()
     var searchMode = false
     
@@ -49,6 +51,12 @@ class MovieController : UICollectionViewController {
     }
     
     //MARK: Selectors
+    
+    @objc func refresh(){
+        print("refresh")
+        self.collectionView.reloadData()
+    }
+    
     @objc func blurViewTapped(){
         removeInfoAnimation()
     }
@@ -58,6 +66,13 @@ class MovieController : UICollectionViewController {
     }
     
     //MARK: Configure
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if(refreshControl.isRefreshing){
+            self.refreshControl.endRefreshing()
+            self.collectionView.reloadData()
+        }
+    }
+
     func removeSearchBar(){
         self.navigationItem.titleView = nil
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
@@ -83,6 +98,9 @@ class MovieController : UICollectionViewController {
         movieService.delegate = self
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
+        
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
     }
     
