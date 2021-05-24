@@ -24,11 +24,22 @@ class MovieController : UICollectionViewController {
         return view
     }()
     
+    lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        return blurEffectView
+    }()
+    
     //MARK: Init
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         
+    }
+    
+    //MARK: Selectors
+    @objc func blurViewTapped(){
+        removeInfoAnimation()
     }
     
     //MARK: Configure
@@ -48,7 +59,28 @@ class MovieController : UICollectionViewController {
     
     //MARK: ConfigureComponents
     func configuresComponents(){
+        collectionView.addSubview(blurEffectView)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        blurEffectView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        blurEffectView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        blurEffectView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        blurEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        blurEffectView.alpha = 0
         
+        let blurViewTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(blurViewTapped))
+        blurEffectView.addGestureRecognizer(blurViewTapGestureRecognizer)
+
+    }
+    
+    //MARK: Helpers
+    func removeInfoAnimation(){
+        UIView.animate(withDuration: 0.3) {
+            self.blurEffectView.alpha = 0
+            self.infoView.alpha = 0
+            self.infoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        } completion: { (_) in
+            self.infoView.removeFromSuperview()
+        }
 
     }
     
@@ -101,11 +133,26 @@ extension MovieController : CollectionViewCellProtocol {
 
         collectionView.addSubview(infoView)
         infoView.translatesAutoresizingMaskIntoConstraints = false
-        infoView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor, constant: 0).isActive = true
-        infoView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: 0).isActive = true
+        infoView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        infoView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
         infoView.widthAnchor.constraint(equalToConstant: view.frame.width - 80).isActive = true
         infoView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        infoView.alpha = 0
+        infoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        infoView.delegate = self
+        infoView.movie = movie
+        
+        UIView.animate(withDuration: 0.3) {
+            self.blurEffectView.alpha = 1
+            self.infoView.alpha = 1
+            self.infoView.transform = .identity
+        }
     }
     
     
+}
+extension MovieController : InfoViewProtocol {
+    func removeInfoView() {
+        removeInfoAnimation()
+    }
 }

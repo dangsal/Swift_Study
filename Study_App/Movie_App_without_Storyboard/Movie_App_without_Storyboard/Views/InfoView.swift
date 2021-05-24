@@ -7,8 +7,20 @@
 
 import UIKit
 
+protocol InfoViewProtocol{
+    func removeInfoView()
+}
+
 class InfoView : UIView {
     //MARK: Property
+    var delegate : InfoViewProtocol?
+    
+    var movie: Movie?{
+        didSet{
+            configureMovie()
+        }
+    }
+    
     lazy var nameView:UIView = {
         let view = UIView()
         view.backgroundColor = .mainColor
@@ -30,15 +42,43 @@ class InfoView : UIView {
         return iv
     }()
     
+    lazy var goToDetailButton: UIButton = {
+        let bt = UIButton(type: .system)
+        bt.setTitle("상세보기", for: .normal)
+        bt.backgroundColor = .mainColor
+        bt.layer.cornerRadius = 8
+        bt.tintColor = .white
+        bt.addTarget(self, action: #selector(goToDetailTapped), for: .touchUpInside)
+        return bt
+    }()
+    
+    
+    //MARK: Selector
+    @objc func goToDetailTapped(){
+        delegate?.removeInfoView()
+    }
+    
+    
+    
+    
     //MARK: Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         configureComponets()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: Helper
+    
+    func configureMovie(){
+        guard let movie = self.movie else {return}
+        nameLable.text = movie.title
     }
     
     //MARK: ConfigureComponents
@@ -50,7 +90,15 @@ class InfoView : UIView {
         nameView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         nameView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         nameView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        addSubview(goToDetailButton)
+        goToDetailButton.translatesAutoresizingMaskIntoConstraints = false
+        goToDetailButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
+        goToDetailButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
+        goToDetailButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
+        goToDetailButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
     }
     
 }
+

@@ -8,5 +8,5 @@
 import UIKit
 
 extension UIColor {
-    static let mainColor = UIColor.systemOrange
+    static let mainColor = UIColor.systemIndigo
 }

@@ -22,6 +22,7 @@ class CollectionViewCell : UICollectionViewCell {
         didSet{
             guard let movies = self.movies else { return }
             self.movieTitle.text = movies.title
+            self.movieYear.text = String(movies.year!)
             if let url = URL(string: movies.medium_cover_image!){
                 self.imageView.sd_setImage(with: url, completed: nil)
             }
