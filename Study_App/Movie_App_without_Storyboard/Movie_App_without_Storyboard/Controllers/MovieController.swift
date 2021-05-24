@@ -47,6 +47,7 @@ class MovieController : UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        hidekeyboardWhenTappedAround()
         
     }
     
@@ -69,7 +70,7 @@ class MovieController : UICollectionViewController {
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if(refreshControl.isRefreshing){
             self.refreshControl.endRefreshing()
-            self.collectionView.reloadData()
+            movieService.fetchMovie()
         }
     }
 
