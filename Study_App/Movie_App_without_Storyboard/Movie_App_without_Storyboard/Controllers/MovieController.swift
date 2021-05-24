@@ -12,7 +12,11 @@ private let reuseableIdentifier = "cell"
 class MovieController : UICollectionViewController {
     
     //MARK: Property
+    var searchedMovie = [Movie]()
+    var searchMode = false
+    
     let movieService = MovieService()
+    
     var movies = [Movie](){
         didSet{
             collectionView.reloadData()
@@ -98,6 +102,20 @@ class MovieController : UICollectionViewController {
     }
     
     //MARK: Helpers
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            searchMode = false
+        } else {
+            searchMode = true
+            let matchingMovie = self.movies.filter { movie in
+                guard let title = movie.title else {return false}
+                return title.lowercased().contains(searchText.lowercased())
+            }
+            self.searchedMovie = matchingMovie
+        }
+        collectionView.reloadData()
+    }
+    
     func removeInfoAnimation(){
         UIView.animate(withDuration: 0.3) {
             self.blurEffectView.alpha = 0
@@ -121,22 +139,46 @@ class MovieController : UICollectionViewController {
 extension MovieController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        
+        if searchMode == false {
+            return movies.count
+        } else {
+            return searchedMovie.count
+        }
+        
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableIdentifier, for: indexPath) as! CollectionViewCell
         
-        let movies = self.movies[indexPath.row]
-        cell.movies = movies
+        var movie : Movie?
+        
+        if searchMode == false {
+            movie = self.movies[indexPath.row]
+        } else {
+            movie = self.searchedMovie[indexPath.row]
+        }
+        
+        
+        cell.movies = movie
         cell.delegate = self
         return cell
     }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let movie = self.movies[indexPath.row]
-        navigationToDetailViewController(movie: movie)
+        var movie : Movie?
         
+        if searchMode == false {
+            movie = self.movies[indexPath.row]
+        } else {
+            movie = self.searchedMovie[indexPath.row]
+        }
+        
+        if movie != nil{
+            navigationToDetailViewController(movie: movie!)
+        }
     }
     
 }
@@ -200,5 +242,8 @@ extension MovieController : InfoViewProtocol {
 extension MovieController : UISearchBarDelegate{
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         removeSearchBar()
+        self.searchBar.text = ""
+        searchMode = false
+        collectionView.reloadData()
     }
 }
