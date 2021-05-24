@@ -54,9 +54,14 @@ class MovieController : UICollectionViewController {
     }
     
     //MARK: Configure
+    func removeSearchBar(){
+        self.navigationItem.titleView = nil
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
+    }
+    
     func configureSearchBar(){
         self.navigationItem.titleView = searchBar
-//        self.navigationItem.rightBarButtonItem = nil
+        self.navigationItem.rightBarButtonItem = nil
         searchBar.becomeFirstResponder()
     }
     
@@ -64,6 +69,7 @@ class MovieController : UICollectionViewController {
         collectionView.backgroundColor = .systemBackground
         navigationItem.title = "MovieApp"
         navigationController?.navigationBar.barTintColor = .mainColor
+        navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.isTranslucent = false
         
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: reuseableIdentifier)
@@ -71,6 +77,8 @@ class MovieController : UICollectionViewController {
         configuresComponents()
         movieService.fetchMovie()
         movieService.delegate = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
         
     }
     
@@ -190,5 +198,7 @@ extension MovieController : InfoViewProtocol {
 }
 
 extension MovieController : UISearchBarDelegate{
-    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        removeSearchBar()
+    }
 }
