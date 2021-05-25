@@ -12,5 +12,12 @@ class FifthTabViewController : UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemYellow
         title = "Settings"
+        print("ViewDidLoad")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        print("ViewDidDisaapear")
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
     }
 }
