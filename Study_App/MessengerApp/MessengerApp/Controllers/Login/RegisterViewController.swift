@@ -17,6 +17,10 @@ class RegisterViewController: UIViewController {
         iv.tintColor = .systemGray
         iv.contentMode = .scaleAspectFit
         iv.isUserInteractionEnabled = true
+        iv.layer.masksToBounds = true
+        iv.layer.cornerRadius = 50
+        iv.layer.borderWidth = 2
+        iv.layer.borderColor = UIColor.systemGray.cgColor
         return iv
     }()
     
@@ -129,6 +133,7 @@ class RegisterViewController: UIViewController {
         imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
+        
         view.addSubview(firstNameField)
         firstNameField.translatesAutoresizingMaskIntoConstraints = false
         firstNameField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 25).isActive = true
@@ -181,7 +186,7 @@ class RegisterViewController: UIViewController {
     
     //MARK: Selectors
     @objc func didTapChangeProfilePic(){
-        print("df")
+        presentPhotoActionSheet()
     }
     
     @objc func registerButtonTapped(){
@@ -225,3 +230,45 @@ extension RegisterViewController: UITextFieldDelegate {
     }
 }
 
+extension RegisterViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func presentPhotoActionSheet(){
+        let actionSheet = UIAlertController(title: "프로필 사진", message: "사진을 선택해도 되겠습니까?", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "사진 찍기", style: .default, handler: { [weak self] _ in
+            self?.presentCamera()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "사진 선택하기", style: .default, handler: { [weak self] _ in
+            self?.presentPhotoPicker()
+        }))
+        
+        present(actionSheet, animated: true)
+    }
+    
+    func presentCamera(){
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc,animated: true)
+    }
+    
+    func presentPhotoPicker(){
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc,animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {return}
+        self.imageView.image = selectedImage
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
