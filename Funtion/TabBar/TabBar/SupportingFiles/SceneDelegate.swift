@@ -19,31 +19,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
         
+        // 탭바 컨트롤러 객체 생성
         let tabBarVC = UITabBarController()
         
+        
+        // 5개의 뷰 객체 생성(네비게이션컨트롤러형식)
+        // 네비게이션 아니여도 됨
+        // let vc1 = FirstTabViewController()
         let vc1 = UINavigationController(rootViewController: FirstTabViewController())
         let vc2 = UINavigationController(rootViewController: SecondTabViewController())
         let vc3 = UINavigationController(rootViewController: ThirdTabViewController())
         let vc4 = UINavigationController(rootViewController: FourthTabViewController())
         let vc5 = UINavigationController(rootViewController: FifthTabViewController())
-        
+
+        // 5개의 뷰 객체를 탭바 컨트롤러가 제어하도록 만들기
         tabBarVC.viewControllers = [vc1,vc2,vc3,vc4,vc5]
-                                    
-        vc1.title = "Home"
-        vc2.title = "Contact"
-        vc3.title = "Help"
-        vc4.title = "About"
-        vc5.title = "Settings"
         
         
-        guard let items = tabBarVC.tabBar.items else {return}
+        // 탭 바 아이템 만들기
+        let vc1Item = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        let vc2Item = UITabBarItem(title: "Contact", image: UIImage(systemName: "bell"), tag: 0)
+        let vc3Item = UITabBarItem(title: "Help", image: UIImage(systemName: "person.circle"), tag: 0)
+        let vc4Item = UITabBarItem(title: "About", image: UIImage(systemName: "star"), tag: 0)
+        let vc5Item = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 0)
         
-        let images = ["house","bell","person.circle","star","gear"]
+        // 탭 바 아이템 꾸미기
+        vc1Item.badgeValue = "1"
+        vc2Item.badgeValue = "2"
+        vc2Item.badgeColor = .systemGreen
         
-        for x in 0..<items.count {
-            items[x].badgeValue = "m"
-            items[x].image = UIImage(systemName: images[x])
-        }
+        // 탭 바 아이템 적용
+        vc1.tabBarItem = vc1Item
+        vc2.tabBarItem = vc2Item
+        vc3.tabBarItem = vc3Item
+        vc4.tabBarItem = vc4Item
+        vc5.tabBarItem = vc5Item
+        
         
         
         window?.rootViewController = tabBarVC
