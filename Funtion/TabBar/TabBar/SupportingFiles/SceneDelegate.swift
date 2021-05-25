@@ -19,7 +19,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
         
-        window?.rootViewController = MainController()
+        let tabBarVC = UITabBarController()
+        
+        let vc1 = UINavigationController(rootViewController: FirstTabViewController())
+        let vc2 = UINavigationController(rootViewController: SecondTabViewController())
+        let vc3 = UINavigationController(rootViewController: ThirdTabViewController())
+        let vc4 = UINavigationController(rootViewController: FourthTabViewController())
+        let vc5 = UINavigationController(rootViewController: FifthTabViewController())
+        
+        tabBarVC.viewControllers = [vc1,vc2,vc3,vc4,vc5]
+                                    
+        vc1.title = "Home"
+        vc2.title = "Contact"
+        vc3.title = "Help"
+        vc4.title = "About"
+        vc5.title = "Settings"
+        
+        
+        guard let items = tabBarVC.tabBar.items else {return}
+        
+        let images = ["house","bell","person.circle","star","gear"]
+        
+        for x in 0..<items.count {
+            items[x].badgeValue = "m"
+            items[x].image = UIImage(systemName: images[x])
+        }
+        
+        
+        window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
     }
 

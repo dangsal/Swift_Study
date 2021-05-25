@@ -12,7 +12,6 @@
 		41184767265CC33C00F9013A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41184765265CC33C00F9013A /* Main.storyboard */; };
 		41184769265CC33E00F9013A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41184768265CC33E00F9013A /* Assets.xcassets */; };
 		4118476C265CC33E00F9013A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4118476A265CC33E00F9013A /* LaunchScreen.storyboard */; };
-		41184776265CC37300F9013A /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41184775265CC37300F9013A /* MainController.swift */; };
 		41184778265CC49500F9013A /* FirstTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41184777265CC49500F9013A /* FirstTabViewController.swift */; };
 		4118477A265CC49E00F9013A /* SecondTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41184779265CC49E00F9013A /* SecondTabViewController.swift */; };
 		4118477C265CC4A300F9013A /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4118477B265CC4A300F9013A /* ThirdTabViewController.swift */; };
@@ -28,7 +27,6 @@
 		41184768265CC33E00F9013A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4118476B265CC33E00F9013A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4118476D265CC33E00F9013A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41184775265CC37300F9013A /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		41184777265CC49500F9013A /* FirstTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabViewController.swift; sourceTree = "<group>"; };
 		41184779265CC49E00F9013A /* SecondTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabViewController.swift; sourceTree = "<group>"; };
 		4118477B265CC4A300F9013A /* ThirdTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 		41184774265CC36200F9013A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				41184775265CC37300F9013A /* MainController.swift */,
 				41184781265CC52300F9013A /* TabControllers */,
 			);
 			path = Controllers;
@@ -181,7 +178,6 @@
 				4118477A265CC49E00F9013A /* SecondTabViewController.swift in Sources */,
 				41184778265CC49500F9013A /* FirstTabViewController.swift in Sources */,
 				4118477E265CC4AA00F9013A /* FourthTabViewController.swift in Sources */,
-				41184776265CC37300F9013A /* MainController.swift in Sources */,
 				41184780265CC4B400F9013A /* FifthTabViewController.swift in Sources */,
 				41184762265CC33C00F9013A /* SceneDelegate.swift in Sources */,
 			);
