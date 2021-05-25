@@ -89,7 +89,7 @@ class RegisterViewController: UIViewController {
     
     lazy var loginButton: UIButton = {
         let bt = UIButton(type: .system)
-        bt.setTitle("가입하기", for: .normal)
+        bt.setTitle("회원가입", for: .normal)
         bt.backgroundColor = .link
         bt.setTitleColor(.white, for: .normal)
         bt.layer.cornerRadius = 12
@@ -106,9 +106,9 @@ class RegisterViewController: UIViewController {
     
     //MARK: Configure
     func configure(){
-        title = "계정 만들기"
+        title = "회원가입"
         view.backgroundColor = .white
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "가입하기", style: .done, target: self, action: #selector(didTapRegister))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "회원가입", style: .done, target: self, action: #selector(didTapRegister))
 
         hidekeyboardWhenTappedAround()
         configureComponents()

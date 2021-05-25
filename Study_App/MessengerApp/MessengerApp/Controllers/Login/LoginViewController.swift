@@ -75,7 +75,7 @@ class LoginViewController: UIViewController {
     func configure(){
         title = "로그인"
         view.backgroundColor = .white
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "가입하기", style: .done, target: self, action: #selector(didTapRegister))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "회원가입", style: .done, target: self, action: #selector(didTapRegister))
 
         hidekeyboardWhenTappedAround()
         configureComponents()
