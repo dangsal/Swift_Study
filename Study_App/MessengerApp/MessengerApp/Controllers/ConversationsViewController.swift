@@ -31,6 +31,6 @@ class ConversationsViewController: UIViewController {
     
     //MARK: Configure
     func configure(){
-        view.backgroundColor = .systemGray
+        view.backgroundColor = .systemRed
     }
 }

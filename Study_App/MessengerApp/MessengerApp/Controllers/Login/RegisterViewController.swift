@@ -7,6 +7,7 @@
 
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     //MARK: Property
@@ -18,7 +19,7 @@ class RegisterViewController: UIViewController {
         iv.contentMode = .scaleAspectFit
         iv.isUserInteractionEnabled = true
         iv.layer.masksToBounds = true
-        iv.layer.cornerRadius = 50
+        iv.layer.cornerRadius = 75
         iv.layer.borderWidth = 2
         iv.layer.borderColor = UIColor.systemGray.cgColor
         return iv
@@ -130,8 +131,8 @@ class RegisterViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
         
         view.addSubview(firstNameField)
@@ -204,6 +205,15 @@ class RegisterViewController: UIViewController {
         }
         
         // Firebase Log In
+        
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            guard let result = authResult, error == nil else {
+                print("Error creating user")
+                return
+            }
+            let user = result.user
+            print("Created User: \(user)")
+        }
         
         
     }
