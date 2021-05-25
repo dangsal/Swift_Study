@@ -25,11 +25,6 @@ class RegisterViewController: UIViewController {
         return iv
     }()
     
-//    lazy var scrollView: UIScrollView = {
-//        let scrollView = UIScrollView()
-//        scrollView.clipsToBounds = true
-//        return scrollView
-//    }()
 
     lazy var firstNameField: UITextField = {
         let tf = UITextField()
