@@ -172,8 +172,8 @@ class RegisterViewController: UIViewController {
     
     
     //MARK: Functions
-    func alertUserLoginError(){
-        let alert = UIAlertController(title: "알림", message: "모든 정보를 입력하세요.", preferredStyle: .alert)
+    func alertUserLoginError(message: String = "모든 정보를 입력하세요."){
+        let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
         present(alert, animated: true)
@@ -201,23 +201,34 @@ class RegisterViewController: UIViewController {
         
         // Firebase Log In
         
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+        DatabaseManager.shared.userExists(with: email) { [weak self] exists in
             guard let strongSelf = self else {
                 return
             }
-            guard let result = authResult, error == nil else {
-                print("Error creating user")
+            
+            guard !exists else {
+                // user already exists
+                strongSelf.alertUserLoginError(message: "이미 존재하는 동일한 이메일입니다.")
                 return
             }
-            let user = result.user
-            print("Created User: \(user)")
-            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
-            // 기계 자체를 초기화 후 실행
+            
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+
+                guard authResult != nil, error == nil else {
+                    print("Error creating user")
+                    return
+                }
+                
+                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email))
+                
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                // 기계 자체를 초기화 후 실행
+            }
         }
-        
         
     }
     
+    //MARK: Selector
     @objc func didTapRegister(){
         let vc = RegisterViewController()
         vc.title = "Create Account"

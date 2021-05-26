@@ -38,6 +38,5 @@ class ConversationsViewController: UIViewController {
     func configure(){
         view.backgroundColor = .systemRed
         
-        DatabaseManager.shared.test()
     }
 }
