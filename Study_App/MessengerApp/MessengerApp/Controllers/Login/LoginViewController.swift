@@ -7,9 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     //MARK: Property
+    
+    let faceBookLoginButton = FBLoginButton()
+    
     
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
@@ -18,12 +22,6 @@ class LoginViewController: UIViewController {
         return iv
     }()
     
-//    lazy var scrollView: UIScrollView = {
-//        let scrollView = UIScrollView()
-//        scrollView.clipsToBounds = true
-//        return scrollView
-//    }()
-
     lazy var emailField: UITextField = {
         let tf = UITextField()
         tf.autocapitalizationType = .none
@@ -118,6 +116,13 @@ class LoginViewController: UIViewController {
         loginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -60).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        
+        
+        view.addSubview(faceBookLoginButton)
+        faceBookLoginButton.translatesAutoresizingMaskIntoConstraints = false
+        faceBookLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        faceBookLoginButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20).isActive = true
+
     }
     
     
@@ -175,3 +180,7 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
 }
+
+
+
+
