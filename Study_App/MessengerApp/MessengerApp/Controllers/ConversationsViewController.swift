@@ -36,7 +36,8 @@ class ConversationsViewController: UIViewController {
     
     //MARK: Configure
     func configure(){
-        view.backgroundColor = .systemRed
-        
+        view.backgroundColor = .systemBackground
+        title = "Chats"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }

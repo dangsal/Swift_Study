@@ -19,7 +19,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
         
-        window?.rootViewController = ConversationsViewController()
+        let tabBarVC = UITabBarController()
+        
+        let chatTab = UINavigationController(rootViewController: ConversationsViewController())
+        let profileTab = UINavigationController(rootViewController: ProfileViewController())
+        
+        tabBarVC.viewControllers = [chatTab, profileTab]
+        
+        let chatTabItem = UITabBarItem(title: "Chat", image: UIImage(systemName: "message.fill"), tag: 0)
+        let profileTabItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle.fill"), tag: 0)
+        
+        
+        chatTab.tabBarItem = chatTabItem
+        profileTab.tabBarItem = profileTabItem
+        
+        window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
     }
 
