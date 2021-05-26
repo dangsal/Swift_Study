@@ -12,7 +12,11 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController {
     //MARK: Property
     
-    let faceBookLoginButton = FBLoginButton()
+    let faceBookLoginButton : FBLoginButton = {
+        let bt = FBLoginButton()
+        bt.permissions = ["email", "public_profile"]
+        return bt
+    }()
     
     
     lazy var imageView: UIImageView = {
@@ -82,6 +86,7 @@ class LoginViewController: UIViewController {
         emailField.delegate = self
         passwordField.delegate = self
         
+        faceBookLoginButton.delegate = self
         
 
         
@@ -181,6 +186,60 @@ extension LoginViewController: UITextFieldDelegate {
     }
 }
 
+extension LoginViewController : LoginButtonDelegate{
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        // no operation
+        
+    }
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        guard let token = result?.token?.tokenString else {
+            print("User failed to log in with facebook")
+            return
+        }
+        
+        let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields": "email, name"], tokenString: token, version: nil, httpMethod: .get)
+        
+        facebookRequest.start { _, result, error in
+            guard let result = result as? [String:Any], error == nil else {
+                print("Failed to make facebook graph request")
+                return
+            }
+            
+            guard let userName = result["name"] as? String, let email = result["email"] as? String else {
+                print("Failed to get email and name from facebook result")
+                return
+            }
+            
 
+            
+            let firstName = userName
+            let lastName = userName
+            
+            DatabaseManager.shared.userExists(with: email) { exists in
+                if !exists {
+                    DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email))
+                }
+            }
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: token)
+            FirebaseAuth.Auth.auth().signIn(with: credential) { [weak self] authResult, error in
+                guard let strongSelf = self else {return}
+                
+                guard authResult != nil , error == nil else {
+                    print("Facebook credential login failed")
+                    return
+                }
+                print("Facebook login success")
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+
+            }
+        }
+            
+
+    }
+    
+    
+}
 
 
