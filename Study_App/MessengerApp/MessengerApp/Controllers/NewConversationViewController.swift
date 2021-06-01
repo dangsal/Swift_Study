@@ -15,7 +15,7 @@ class NewConversationViewController: UIViewController {
         configure()
     }
     
-    //MAKR: configure
+    //MARK: Configure
     func configure(){
         
     }
