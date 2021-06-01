@@ -46,3 +46,7 @@ extension UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }
+
+extension Notification.Name {
+    static let didLogInNotification = Notification.Name("didLogInNotification")
+}

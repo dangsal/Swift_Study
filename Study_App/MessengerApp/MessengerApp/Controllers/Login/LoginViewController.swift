@@ -8,9 +8,12 @@
 import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
+import GoogleSignIn
+
 
 class LoginViewController: UIViewController {
     //MARK: Property
+    private var loginObserver : NSObjectProtocol?
     
     let faceBookLoginButton : FBLoginButton = {
         let bt = FBLoginButton()
@@ -68,16 +71,39 @@ class LoginViewController: UIViewController {
         return bt
     }()
     
+    lazy var googleLogInButton : GIDSignInButton =  {
+        let bt = GIDSignInButton()
+        return bt
+    }()
+    
+    
+    
     //MARK: Init
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
+    deinit {
+        if let observer = loginObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
     
     //MARK: Configure
     func configure(){
+        
+        
+        loginObserver = NotificationCenter.default.addObserver(forName: Notification.Name.didLogInNotification, object: nil, queue: .main, using: { [weak self] _ in
+            guard let strongSelf = self else {return}
+            
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+        })
+        
+        GIDSignIn.sharedInstance().presentingViewController = self
+        
         title = "로그인"
         view.backgroundColor = .white
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "회원가입", style: .done, target: self, action: #selector(didTapRegister))
 
         hidekeyboardWhenTappedAround()
@@ -87,10 +113,10 @@ class LoginViewController: UIViewController {
         passwordField.delegate = self
         
         faceBookLoginButton.delegate = self
-        
-
-        
+    
     }
+    
+
     
     func configureComponents(){
         view.addSubview(imageView)
@@ -128,6 +154,10 @@ class LoginViewController: UIViewController {
         faceBookLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         faceBookLoginButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20).isActive = true
 
+        view.addSubview(googleLogInButton)
+        googleLogInButton.translatesAutoresizingMaskIntoConstraints = false
+        googleLogInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        googleLogInButton.topAnchor.constraint(equalTo: faceBookLoginButton.bottomAnchor, constant: 20).isActive = true
     }
     
     

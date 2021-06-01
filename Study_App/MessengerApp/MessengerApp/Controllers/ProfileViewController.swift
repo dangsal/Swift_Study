@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
+import GoogleSignIn
 
 let reuseableIdentifier = "cell"
 
@@ -63,7 +64,11 @@ extension ProfileViewController {
             
             guard let strongSelf = self else {return}
             
-            FBSDKLoginKit.LoginManager().logOut() 
+            // log out facebook
+            FBSDKLoginKit.LoginManager().logOut()
+            
+            // log out google
+            GIDSignIn.sharedInstance().signOut()
             
             do{
                 try FirebaseAuth.Auth.auth().signOut()
