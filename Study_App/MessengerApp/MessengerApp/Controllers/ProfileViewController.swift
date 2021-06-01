@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
 
 let reuseableIdentifier = "cell"
 
@@ -61,6 +62,8 @@ extension ProfileViewController {
         actionSheet.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { [weak self] (_) in
             
             guard let strongSelf = self else {return}
+            
+            FBSDKLoginKit.LoginManager().logOut() 
             
             do{
                 try FirebaseAuth.Auth.auth().signOut()
