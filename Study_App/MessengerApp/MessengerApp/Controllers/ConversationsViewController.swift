@@ -62,11 +62,19 @@ class ConversationsViewController: UIViewController {
        }
    }
     
+    //MARK: Selector
+    @objc func didTapComposeButton(){
+        let vc = NewConversationViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true, completion: nil)
+    }
+    
     //MARK: Configure
     func configure(){
         view.backgroundColor = .systemBackground
         title = "Chats"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapComposeButton))
         
         tableView.delegate = self
         tableView.dataSource = self
