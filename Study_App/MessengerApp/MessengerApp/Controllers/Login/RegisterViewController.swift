@@ -8,9 +8,11 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class RegisterViewController: UIViewController {
     //MARK: Property
+    lazy var spinner = JGProgressHUD(style: .dark)
     
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
@@ -198,12 +200,17 @@ class RegisterViewController: UIViewController {
             alertUserLoginError()
             return
         }
+        spinner.show(in: view)
         
         // Firebase Log In
         
         DatabaseManager.shared.userExists(with: email) { [weak self] exists in
             guard let strongSelf = self else {
                 return
+            }
+            
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss()
             }
             
             guard !exists else {

@@ -9,10 +9,14 @@ import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
 import GoogleSignIn
+import JGProgressHUD
 
 
 class LoginViewController: UIViewController {
     //MARK: Property
+    
+    lazy var spinner = JGProgressHUD(style: .dark)
+    
     private var loginObserver : NSObjectProtocol?
     
     let faceBookLoginButton : FBLoginButton = {
@@ -181,11 +185,20 @@ class LoginViewController: UIViewController {
             return
         }
         
+        spinner.show(in: view)
+        
         // Firebase Log In
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            
             guard let strongSelf = self else {
                 return
             }
+            
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss()
+            }
+            
+            
             guard let result = authResult, error == nil else {return}
             
             let user = result.user
