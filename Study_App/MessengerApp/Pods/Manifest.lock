@@ -111,6 +111,9 @@ PODS:
   - Realm/Headers (10.7.2)
   - RealmSwift (10.7.2):
     - Realm (= 10.7.2)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
 
 DEPENDENCIES:
   - FBSDKLoginKit
@@ -121,6 +124,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - MessageKit
   - RealmSwift
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -148,6 +152,7 @@ SPEC REPOS:
     - PromisesObjC
     - Realm
     - RealmSwift
+    - SDWebImage
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
@@ -174,7 +179,8 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Realm: e523da9ade306c5ae87e85dc09fdef148d3e1cc1
   RealmSwift: 4f6758c3adbdcc87f7b7777107226532a077f61c
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: c7191d616ea0eb53ab144cedf5a5e21c909ecd0b
+PODFILE CHECKSUM: 03c60bdfd8b04a29a2f7c5491742eec4b67d403f
 
 COCOAPODS: 1.10.1

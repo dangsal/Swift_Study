@@ -10,6 +10,13 @@ import FirebaseAuth
 
 class ConversationsViewController: UIViewController {
     
+    //MARK: Property
+    lazy var tableView: UITableView = {
+        let table = UITableView()
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return table
+    }()
+    
     //MARK: Init
     override func viewDidLoad() {
         super.viewDidLoad()
