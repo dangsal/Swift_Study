@@ -241,36 +241,62 @@ extension LoginViewController : LoginButtonDelegate{
             return
         }
         
-        let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields": "email, name"], tokenString: token, version: nil, httpMethod: .get)
+        let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"], tokenString: token, version: nil, httpMethod: .get)
         
-        facebookRequest.start { _, result, error in
-            guard let result = result as? [String:Any], error == nil else {
-                print("Failed to make facebook graph request")
-                return
-            }
+        facebookRequest.start(completionHandler: { _, result, error in
+                    guard let result = result as? [String: Any],
+                        error == nil else {
+                            print("Failed to make facebook graph request")
+                            return
+                    }
             
-            guard let userName = result["name"] as? String, let email = result["email"] as? String else {
+            guard let firstName = result["first_name"] as? String,
+                  let lastName = result["last_name"] as? String,
+                  let email = result["email"] as? String,
+                  let picture = result["picture"] as? [String:Any?] ,
+                  let data = picture["data"] as? [String: Any],
+                  let pictureUrl = data["url"] as? String
+                  else {
                 print("Failed to get email and name from facebook result")
                 return
             }
             
   
 
-            
-            let lastName = userName[userName.startIndex]
-            let startIndex:String.Index = userName.index(userName.startIndex, offsetBy: 1)
-            let firstName = userName[startIndex...]
-            
-
-//            let nameCoponents = userName.components(separatedBy: " ")
-//            guard nameCoponents.count == 2 else {return}
 //
-//            let firstName = nameCoponents[0]
-//            let lastName = nameCoponents[1]
+//            let lastName = userName[userName.startIndex]
+//            let startIndex:String.Index = userName.index(userName.startIndex, offsetBy: 1)
+//            let firstName = userName[startIndex...]
+//
+
+
             
             DatabaseManager.shared.userExists(with: email) { exists in
                 if !exists {
-                    DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: String(firstName), lastName: String(lastName), emailAddress: email))
+                    let chatUser = ChatAppUser(firstName: String(firstName), lastName: String(lastName), emailAddress: email)
+                                               DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
+                                                if success {
+                                                    guard let url = URL(string: pictureUrl) else {return}
+                                                    print("Downloading data from facebook image")
+                                                    URLSession.shared.dataTask(with: url) { data, _ , error in
+                                                        guard let data = data else {
+                                                            print("Failed to get data from facebook")
+                                                            return}
+                                                        print("got data from FB, uploading")
+                                                        //upload images
+                                                        let fileName = chatUser.profilePictureFileName
+                                                        StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName) { result in
+                                                            switch result {
+                                                            case .success(let downloadUrl):
+                                                                UserDefaults.standard.set(downloadUrl,forKey: "profile_picture_url")
+                                                                print(downloadUrl)
+                                                            case .failure(let error):
+                                                                print("Storage manager error: \(error)")
+                                                            }
+                                                        }
+                                                    }.resume()
+                                                }
+                                               })
                 }
             }
             
@@ -287,10 +313,8 @@ extension LoginViewController : LoginButtonDelegate{
 
             }
         }
-            
-
-    }
-    
+        )
+        }
     
 }
 
