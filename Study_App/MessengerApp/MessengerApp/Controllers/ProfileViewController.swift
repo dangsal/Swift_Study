@@ -37,10 +37,9 @@ class ProfileViewController: UITableViewController {
     }
     
     func configureComponents(){
-        
         tableView.register(ProfileCell.self, forCellReuseIdentifier: reuseableIdentifier)
-        
     }
+    
 }
 
 extension ProfileViewController {

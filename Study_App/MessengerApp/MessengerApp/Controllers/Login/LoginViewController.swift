@@ -201,6 +201,8 @@ class LoginViewController: UIViewController {
             
             guard let result = authResult, error == nil else {return}
             
+            UserDefaults.standard.set(email, forKey: "email")
+            
             let user = result.user
             print("Logged In User: \(user)")
             strongSelf.navigationController?.dismiss(animated: true, completion: nil)
@@ -261,6 +263,7 @@ extension LoginViewController : LoginButtonDelegate{
                 return
             }
             
+            UserDefaults.standard.set(email, forKey: "email")
   
 
 //
