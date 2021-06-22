@@ -26,10 +26,9 @@ class ToDoListViewController : UITableViewController {
     
     //MARK: Function
     func alertPopUp(){
-        let alert = UIAlertController(title: "새로 추가할 일", message: "해야하는 일을 추가하십쇼.", preferredStyle: .alert)
-        
+        let alert = UIAlertController(title: "새로추가할 일", message: "해야하는 일을 추가하세요.", preferredStyle: .alert)
         alert.addTextField { field in
-            field.placeholder = "할일을 입력하세요."
+            field.placeholder = "해야하는 일을 추가하세요."
         }
         alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { [weak self](_) in
@@ -45,6 +44,7 @@ class ToDoListViewController : UITableViewController {
                 }
             }
         }))
+        
         present(alert,animated: true)
     }
     
@@ -72,4 +72,27 @@ extension ToDoListViewController {
         cell.textLabel?.text = lists[indexPath.row]
         return cell
     }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // delete
+            lists.remove(at: indexPath.row)
+            var currentLists = UserDefaults.standard.stringArray(forKey: "lists") ?? []
+            currentLists.remove(at: indexPath.row)
+            UserDefaults.standard.setValue(currentLists, forKey: "lists")
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
+
+
+
+
+
+
+

@@ -24,7 +24,7 @@ class ToDoCell : UITableViewCell {
     }
     //MARK: Configure
     func configure(){
-        backgroundColor = .systemGreen
+        backgroundColor = .systemBackground
         
 
         
