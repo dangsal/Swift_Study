@@ -13,6 +13,7 @@ class ToDoListViewController : UITableViewController {
     
     //MARK: Property
     var lists = [String]()
+
     
     //MARK: Init
     override func viewDidLoad() {
