@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: scene)
 //        window?.rootViewController = AnimationController()
 //        window?.rootViewController = CollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-//        window?.rootViewController = TableViewController()
-        window?.rootViewController = UINavigationController(rootViewController: RootViewController())
+        window?.rootViewController = TableViewController()
+//        window?.rootViewController = UINavigationController(rootViewController: RootViewController())
 //        window?.rootViewController = ScrollViewController()
         window?.makeKeyAndVisible()
     }

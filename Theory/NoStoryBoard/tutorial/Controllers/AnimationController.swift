@@ -82,7 +82,6 @@ class AnimationController:UIViewController {
         blurEffectView.alpha = 0
 
         
-        
     }
     
 }
