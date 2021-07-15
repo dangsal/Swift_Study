@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  tutorial
+//  FloatingBtn
 //
-//  Created by 이성호 on 2021/05/17.
+//  Created by 이성호 on 2021/07/15.
 //
 
 import UIKit
@@ -16,15 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let scene = (scene as? UIWindowScene) else { return }
-        
-        self.window = UIWindow(windowScene: scene)
-        window?.rootViewController = AnimationController()
-//        window?.rootViewController = CollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-//        window?.rootViewController = TableViewController()
-//        window?.rootViewController = UINavigationController(rootViewController: RootViewController())
-//        window?.rootViewController = ScrollViewController()
-        window?.makeKeyAndVisible()
+        guard let _ = (scene as? UIWindowScene) else { return }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
