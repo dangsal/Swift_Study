@@ -99,12 +99,8 @@
 		D712432826A0073D00BF6D7F /* FloatingBtn */ = {
 			isa = PBXGroup;
 			children = (
-				D712432926A0073D00BF6D7F /* AppDelegate.swift */,
-				D712432B26A0073D00BF6D7F /* SceneDelegate.swift */,
+				D712435926A0079400BF6D7F /* SupprotingFiles */,
 				D712432D26A0073D00BF6D7F /* ViewController.swift */,
-				D712432F26A0073D00BF6D7F /* Main.storyboard */,
-				D712433226A0073D00BF6D7F /* Assets.xcassets */,
-				D712433426A0073D00BF6D7F /* LaunchScreen.storyboard */,
 				D712433726A0073D00BF6D7F /* Info.plist */,
 			);
 			path = FloatingBtn;
@@ -126,6 +122,18 @@
 				D712434D26A0073D00BF6D7F /* Info.plist */,
 			);
 			path = FloatingBtnUITests;
+			sourceTree = "<group>";
+		};
+		D712435926A0079400BF6D7F /* SupprotingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D712432926A0073D00BF6D7F /* AppDelegate.swift */,
+				D712432B26A0073D00BF6D7F /* SceneDelegate.swift */,
+				D712432F26A0073D00BF6D7F /* Main.storyboard */,
+				D712433226A0073D00BF6D7F /* Assets.xcassets */,
+				D712433426A0073D00BF6D7F /* LaunchScreen.storyboard */,
+			);
+			path = SupprotingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
