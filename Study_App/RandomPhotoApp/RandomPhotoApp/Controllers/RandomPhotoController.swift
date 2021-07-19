@@ -41,7 +41,10 @@ class RandomPhotoController : UIViewController {
             guard let data = try? Data(contentsOf: url) else {
                 return
             }
-            imageView.image = UIImage(data: data)
+            DispatchQueue.main.async {
+                self.imageView.image = UIImage(data: data)
+            }
+            
         }
     }
     //MARK: Init
