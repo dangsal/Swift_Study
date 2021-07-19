@@ -12,9 +12,14 @@ class MainViewController: UIViewController {
     //MARK: Selectors
     //MARK: Functions
     //MARK: Init
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configure()
+        configureComponent()
+    }
     //MARK: Configure
         func configure(){
-            
+            view.backgroundColor = .systemGray
         }
         
         func configureComponent(){
