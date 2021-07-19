@@ -14,10 +14,14 @@ class MainViewController: UIViewController {
         bt.setTitle("Start", for: .normal)
         bt.tintColor = .white
         bt.backgroundColor = .black
+        bt.addTarget(self, action: #selector(startBtnTapped), for: .touchUpInside)
         return bt
     }()
     
     //MARK: Selectors
+    @objc func startBtnTapped(){
+        navigationController?.pushViewController(GameViewController(), animated: true)
+    }
     //MARK: Functions
     //MARK: Init
     override func viewDidLoad() {
