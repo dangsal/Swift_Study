@@ -431,12 +431,12 @@ class 자식 : 부모 {
 - class 클래스명: 부모명, 프로토콜명1, 프로토콜명2 {}
 - class 클래스명: 프로토콜명{}
 - class 클래스명: 프로토콜명1, 프로토콜명2{}
-- 상속은 클래스만 가능
+- 상속은 클래스만 가능★
 - 클래스 구조체 열거형 extension 에 프로토콜을 채택 할 수 있다.
 
 ## 상속 : 부모가 가진 것을 물려받는다.
 
-### super : 부모 메서드 호출 시 사용
+### super : 부모 메서드 호출 시 사용 ★
 
 ```swift
 class Man{
@@ -498,6 +498,30 @@ lee.display()
 
 - 부모와 자식에 display()라는 메서드가 있어서 student 클래스는 display() 메서드가 두개임
 - student 클래스의 인스턴스 lee 가 display() 를 호출할때 자식클래스가 새로 만든 display() 메서드가 우선적으로 호출되려면 func 앞에 override 키워드를 씀
+
+
+## Designated Initializer(지정 이니셜라이져) and Convenience Initializer(편의 이니셜라이져)
+- 클래스의 프로퍼티는 초기값이 있거나 옵셔널 변수(상수) 로 선언  (init() 없다면 오류)
+
+### Designated initializer : 인스턴스 초기화하기 init() 함수
+- 모든 프로퍼티를 다 초기화 시키는 생성자
+- 초기화되지 않은 프로퍼티가 있을 경우 클래스에 반드시 1개 이상 필요
+
+```swift
+init(age: Int , weight: Double , name:String){
+    super.init(age:age, weight:weight)
+    self.name = name
+}
+```
+
+### Convenience initializer( 편의 이니셜 라이져 )
+- 보조 이니셜 라이져
+- 일부 프로퍼티만 초기화(단독으로 초기화 불가능)
+- 다른 이니셜라이져를 이용해서 초기화(initializer delegation) Ex) self.init()
+- 다양한 방법으로 객체 만들 수 있도록 편의를 제공하려면 init 을 오버로딩해야 하고 코드 중복이 발생
+- 코드 중복 방지
+
+
 
 ### 익스텐션 (extension)
 
