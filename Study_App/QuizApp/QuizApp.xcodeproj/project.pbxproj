@@ -15,6 +15,7 @@
 		D7A1129A26A54736004ECC09 /* QuizAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1129926A54736004ECC09 /* QuizAppTests.swift */; };
 		D7A112A526A54736004ECC09 /* QuizAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A112A426A54736004ECC09 /* QuizAppUITests.swift */; };
 		D7A112B826A5479B004ECC09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A112B726A5479B004ECC09 /* MainViewController.swift */; };
+		D7A112BA26A54F38004ECC09 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A112B926A54F38004ECC09 /* GameController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D7A112A426A54736004ECC09 /* QuizAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAppUITests.swift; sourceTree = "<group>"; };
 		D7A112A626A54736004ECC09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7A112B726A5479B004ECC09 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D7A112B926A54F38004ECC09 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				D7A112B726A5479B004ECC09 /* MainViewController.swift */,
+				D7A112B926A54F38004ECC09 /* GameController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A112B826A5479B004ECC09 /* MainViewController.swift in Sources */,
+				D7A112BA26A54F38004ECC09 /* GameController.swift in Sources */,
 				D7A1128326A54735004ECC09 /* AppDelegate.swift in Sources */,
 				D7A1128526A54735004ECC09 /* SceneDelegate.swift in Sources */,
 			);
