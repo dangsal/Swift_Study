@@ -629,6 +629,18 @@ a.bb(x:3)
 
 
 ```
+## delegate 
+- 대리자, 조력자 
+- 이런 일이 있을 때 delegate 너가 좀 전담해줘 ( 델리게이트로 선언된 ( 보통 내가 만든 클래스의 ) 객체는 자신을 임명한 객체( 테이블뷰, 피커뷰) 가 일을 도와달라고 하면 지정된 메서드를 통해 처리해 줌
+- 델리게이트 패턴 : 하나의 객체가 모든 일을 처리하는 것이 아니라 처리 해야 할일 중 일부를 다른 객체에 넘기는 것
+- 보통 프로토콜을 사용
+
+## Protocol
+- 특정 클래스와 관련없는 프로퍼티, 메서드 선언 집합
+- 함수,메서드 정의는 없음
+- 부모 클래스는 하나만 가능하며 여러 개라면 나머지는 프로토콜이다. (상속이 아닌 채택한다 라고 말함 )
+- ★★★★★★ 채택한 클래스에서는 자신이 델리게이트라 지정하는 것을 잊으면 안된다 . (ex pickerImage.delegate = self) ★★★★★★
+
 
 ## 열거형(enum)
 
@@ -658,6 +670,66 @@ print(Compass.N)  // 	N
 var direction = Compass.W
 direction = .E
 ```
+## Struct 구조체
+- 구조체는 Initializeer 자동생성 ( init 메소드 없어도 됨 )
+```swift
+struct Resolution {
+    var width : Int 
+    var height : Int
+}
+let myCom = Resolution(width: 1920, height: 1080)
+```
+
+## class 와 struct 의 공통점
+- 프로퍼티를 정의 할수 있다.
+- 메서드를 정의할 수 있다.
+- extension, protocol 채택 가능
+
+## class 가 struct 보다 더 갖는 특징
+- 상속이 가능
+- 타입캐스팅(is as as? as!) 을 통해 실행 시점에 클래스 인스턴스의 타입을 검사하고 해석가능
+- deinitializer(deinit{})로 사용한 자원을 반환 가능 
+- 참조 카운팅을 통해 한 클래스 인스턴스를 여러 곳에서 참조 (사용) 가능
+
+## 구조체는 값타입이고 (value type) 클래스는 참조타입(reference type) 이다
+```swift
+struct Human {
+    var age: Int = 1
+}
+
+var kim = Human()
+var lee = kim // 값타입
+print(kim.age , lee.age) //1,1
+lee.age = 20
+print(kim.age , lee.age) // 1 , 20
+kim.age = 30
+print(kim.age , lee.age) // 30, 20
+
+```
+```swift
+class Human {
+    var age: Int = 1
+}
+
+var kim = Human()
+var lee = kim // 참조타입
+print(kim.age , lee,age) // 1,1
+lee.age = 20
+print(kim.age , lee,age) // 20, 20
+kim.age = 30
+print(kim.age , lee,age) // 30 , 30
+```
+
+## 언제 클래스를 쓰고 언제 구조체를 쓰나?
+- 클래스는 참조타입, 구조체는 값 탕칩
+- 구조체는 간단한 데이터 값들을 한데 묶어서 사용하는 경우
+- 전체 덩어리 크기가 작은경우, 복사를 통해 전달해도 좋은경우 구조체
+- 멀티 쓰레드 환경이라면 구조체가 더 안전
+- 구조체는 상속할 필요가 없는 경우 
+- 너비 높이를 표현하는 기하학적 모양을 처리할 경우
+- 시작값, 증분, 길이 등으로 순열을 표헌할 경우
+- 3차원 좌표 시스템의 각 좌표 ..
+
 
 ## Any, AnyObject
 
