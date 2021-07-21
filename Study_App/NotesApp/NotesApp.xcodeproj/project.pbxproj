@@ -15,6 +15,10 @@
 		D7C57EEB26A7F53700823CF0 /* NotesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C57EEA26A7F53700823CF0 /* NotesAppTests.swift */; };
 		D7C57EF626A7F53700823CF0 /* NotesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C57EF526A7F53700823CF0 /* NotesAppUITests.swift */; };
 		D7C57F0626A7F57200823CF0 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C57F0526A7F57200823CF0 /* NotesViewController.swift */; };
+		D7C57F0926A7F7AA00823CF0 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C57F0826A7F7AA00823CF0 /* TableCell.swift */; };
+		D7C57F0C26A7F9DF00823CF0 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C57F0B26A7F9DF00823CF0 /* Notes.swift */; };
+		D7C57F0E26A7FD8300823CF0 /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C57F0D26A7FD8300823CF0 /* NewNoteViewController.swift */; };
+		D7C57F1026A80D7600823CF0 /* ShowNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C57F0F26A80D7600823CF0 /* ShowNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		D7C57EF526A7F53700823CF0 /* NotesAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesAppUITests.swift; sourceTree = "<group>"; };
 		D7C57EF726A7F53700823CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7C57F0526A7F57200823CF0 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		D7C57F0826A7F7AA00823CF0 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		D7C57F0B26A7F9DF00823CF0 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		D7C57F0D26A7FD8300823CF0 /* NewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
+		D7C57F0F26A80D7600823CF0 /* ShowNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,8 @@
 		D7C57ED226A7F53600823CF0 /* NotesApp */ = {
 			isa = PBXGroup;
 			children = (
+				D7C57F0A26A7F9D300823CF0 /* Models */,
+				D7C57F0726A7F79E00823CF0 /* Views */,
 				D7C57F0426A7F56500823CF0 /* Controllers */,
 				D7C57F0326A7F55D00823CF0 /* SupportingFiles */,
 				D7C57EE126A7F53700823CF0 /* Info.plist */,
@@ -140,8 +150,26 @@
 			isa = PBXGroup;
 			children = (
 				D7C57F0526A7F57200823CF0 /* NotesViewController.swift */,
+				D7C57F0D26A7FD8300823CF0 /* NewNoteViewController.swift */,
+				D7C57F0F26A80D7600823CF0 /* ShowNoteViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D7C57F0726A7F79E00823CF0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D7C57F0826A7F7AA00823CF0 /* TableCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D7C57F0A26A7F9D300823CF0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7C57F0B26A7F9DF00823CF0 /* Notes.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,8 +303,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7C57ED426A7F53600823CF0 /* AppDelegate.swift in Sources */,
+				D7C57F0C26A7F9DF00823CF0 /* Notes.swift in Sources */,
 				D7C57ED626A7F53600823CF0 /* SceneDelegate.swift in Sources */,
+				D7C57F0926A7F7AA00823CF0 /* TableCell.swift in Sources */,
 				D7C57F0626A7F57200823CF0 /* NotesViewController.swift in Sources */,
+				D7C57F0E26A7FD8300823CF0 /* NewNoteViewController.swift in Sources */,
+				D7C57F1026A80D7600823CF0 /* ShowNoteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
