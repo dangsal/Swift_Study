@@ -8,14 +8,16 @@
 import UIKit
 
 protocol DatePickControllerProtocol {
-    func dataSave(text : String)
+    func dataSave(text : String, date: Date)
 }
 
 class DatePickController : UIViewController {
     
     var delegate: DatePickControllerProtocol?
-
+    
     //MARK: Property
+
+    
     lazy var saveBtn : UIButton = {
         let bt = UIButton(type: .system)
         bt.setTitle("Save", for: .normal)
@@ -46,7 +48,8 @@ class DatePickController : UIViewController {
     @objc func saveBtnTapped(){
         print(datePicker.date)
         if let text = textField.text, !text.isEmpty {
-            delegate?.dataSave(text: text)
+            let pickedDatetime = datePicker.date
+            delegate?.dataSave(text: text, date: pickedDatetime)
         }
         self.navigationController?.popViewController(animated: true)
     }
