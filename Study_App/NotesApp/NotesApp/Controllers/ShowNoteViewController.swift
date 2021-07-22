@@ -52,15 +52,16 @@ class ShowNoteViewController : UIViewController {
             contentLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0).isActive = true
             contentLabel.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 30).isActive = true
             contentLabel.rightAnchor.constraint(equalTo: view.rightAnchor,constant: -30).isActive = true
-            contentLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+            
         }
 
 }
 //MARK: Extensions
 extension ShowNoteViewController : NotesProtocol {
     func cellTapped(title: String, content: String) {
+        print("SS")
         self.titleLabel.text = title
-        self.contentLabel.text = title
+        self.contentLabel.text = content
     }
     
     

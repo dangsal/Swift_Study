@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol NewNoteProtocol {
+protocol NewNoteProtocol  {
     func saveTapped(title: String, content: String)
 }
 
@@ -49,6 +49,9 @@ class NewNoteViewController: UIViewController {
     }
     //MARK: Functions
     //MARK: Init
+    deinit {
+        print("Deiniti2")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()

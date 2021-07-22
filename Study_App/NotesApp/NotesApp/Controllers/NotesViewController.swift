@@ -9,7 +9,7 @@ import UIKit
 
 private let reuseIdentifier = "Tablecell"
 
-protocol NotesProtocol {
+protocol NotesProtocol{
     func cellTapped(title: String, content: String)
 }
 
@@ -37,6 +37,10 @@ class NotesViewController : UIViewController {
     }
     //MARK: Functions
     //MARK: Init
+    deinit {
+        print("Deiniti")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
